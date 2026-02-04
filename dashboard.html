@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Training Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+/* Two-column layout on medium+ screens */
+@media (min-width: 900px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Make header card span both columns */
+.header-card {
+    grid-column: 1 / -1;
+}
+
+        /* ------------------------------
+           Card Layout
+        ------------------------------ */
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .header-card {
+            display: flex;
+            gap: 20px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .header-avatar img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-meta {
+            margin-bottom: 10px;
+            color: #8b949e;
+        }
+
+        .header-metrics {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-metric-label {
+            font-size: 0.8rem;
+            color: #8b949e;
+        }
+
+        .header-metric-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* ------------------------------
+           Badges
+        ------------------------------ */
+        .badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .badge-low { background: #238636; }
+        .badge-moderate { background: #9e6a03; }
+        .badge-high { background: #da3633; }
+
+        .status-good { background: #238636; }
+        .status-warning { background: #9e6a03; }
+        .status-bad { background: #da3633; }
+
+        .pw-good { background: #238636; }
+        .pw-too-fresh { background: #58a6ff; }
+        .pw-not-ready { background: #9e6a03; }
+        .pw-outside { background: #6e7681; }
+
+        .ramp-safe { background: #238636; }
+        .ramp-medium { background: #9e6a03; }
+        .ramp-high { background: #da3633; }
+        .ramp-unknown { background: #6e7681; }
+
+        /* ------------------------------
+           Week Calendar
+        ------------------------------ */
+        .week-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+/*        @media (min-width: 700px) {
+/*            .week-calendar-grid {
+/*                grid-template-columns: repeat(2, 1fr);
+/*            }
+/*        }
+
+/*        @media (min-width: 1100px) {
+/*            .week-calendar-grid {
+/*                grid-template-columns: repeat(3, 1fr);
+/*            }
+/*        }
+
+        .week-cell {
+            background-colour: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .week-day-label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .week-session-text {
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .small {
+            font-size: 0.75rem;
+            color: #8b949e;
+        }
+
+        .activity-block {
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------
+           Tables
+        ------------------------------ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #30363d;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #21262d;
+        }
+        
+        .tabs {
+               display: flex;
+            gap: 10px;
+            margin: 20px;
+        }
+
+        .tab-button {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #e6edf3;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+
+        .tab-button:hover {
+            background: #30363d;
+        }
+
+        .tab-button.active {
+            background: #238636;
+            border-color: #2ea043;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .week-cell.zone-endurance { background-color: #1e90ff20; }
+        .week-cell.zone-tempo { background-color: #ffa50020; }
+        .week-cell.zone-sweetspot { background-color: #ff149320; }
+        .week-cell.zone-threshold { background-color: #dc143c20; }
+        .week-cell.zone-vo2 { background-color: #4169e120; }
+        .week-cell.zone-anaerobic { background-color: #8b000020; }
+        .week-cell.zone-neuromuscular { background-color: #4b008220; }
+
+        .planned-session {
+            background-color: #0f1a2a;        /* dark blue */
+            border-left: 4px solid #4a90e2;   /* blue accent */
+        }
+
+        .actual-session {
+            background-color: #1a1f10;        /* dark green */
+            border-left: 4px solid #32cd32;   /* lime green accent */
+        }
+
+        /* Remove color from source types */
+        .actual-session,
+        .planned-session {
+            background: none;
+            border-left: none;
+        }
+   
+        .why-session {
+            color: #aaa;
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .control-button {
+            background: #238636;
+            border: 1px solid #2ea043;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .control-button:hover {
+            background: #2ea043;
+        }
+        
+        .activity-block {
+            margin-bottom: 12px;
+        }
+       
+        .week-cell.zone-race { background-color: #ff000020; }
+        
+        .hours-display {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+        }
+
+        .hours-display .label {
+            opacity: 0.8;
+        }
+
+        .hours-display .value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .hours-input {
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #fff;
+            color: #000;
+            width: 80px;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+       .helper-text {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+       .save-button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .save-button:hover {
+            background: #2ecc71;
+        }
+
+        .save-button:active {
+            transform: scale(0.97);
+        }
+
+        .hours-input {
+            background: #2b2b2b;          /* Dark background */
+            color: #ffffff;               /* White text */
+            border: 1px solid #444;       /* Subtle border */
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 110px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hours-input:focus {
+            border-color: #28a745;        /* Green highlight */
+            box-shadow: 0 0 4px #28a745;
+        }
+       
+       .hours-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .zone-endurance {
+            background-color: #2e8b57;  /* Green */
+            color: #fff;
+        }
+
+        .zone-tempo {
+            background-color: #f0ad4e;  /* Amber */
+            color: #fff;
+        }
+
+        .zone-threshold {
+            background-color: #d9534f;  /* Red */
+            color: #fff;
+        }
+
+        .zone-sweetspot {
+            background-color: #5bc0de;  /* Blue */
+            color: #fff;
+        }
+
+        .zone-race {
+            background-color: #6f42c1;  /* Purple */
+            color: #fff;
+        }
+
+        .zone-rest {
+        background-color: #444;
+            color: #ccc;
+        }
+        
+        .week-session-text {
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .session-card {
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #333;
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .day-column {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .collapsible-card-header {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .collapsible-card-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background-color: #1e1e1e;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'main-tab')">Dashboard</button>
+        <button class="tab-button" onclick="openTab(event, 'charts-tab')">Charts</button>
+    </div>
+
+    <div id="main-tab" class="tab-content active">
+        <div class="container">
+
+        <script>
+        function saveHoursAndRebuild() {
+            const value = document.getElementById("hours_input").value;
+            document.getElementById("save_status").innerText = "Saving…";
+
+            window.location.href = `mytrainingapp://save_and_rebuild?value=${value}`;
+
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }
+        </script>
+
+        
+<div class="header-card">
+  <div class="header-info" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;">
+
+    <!-- LEFT SIDE: Avatar + Athlete Info -->
+    <div style="flex:1; min-width:300px;">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+        <div class="header-avatar">
+          <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/232271/13378637/4/large.jpg" alt="Athlete photo" />
+        </div>
+        <div style="font-size:1.8em; font-weight:600;">Training Dashboard</div>
+       
+      </div>
+
+      <div class="header-meta" style="margin-bottom:8px;">
+        Steve "Chip” Chmiewliski · Taunton
+      </div>
+
+      <div class="header-metrics" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:12px;">
+        <div><div class="header-metric-label">Last Training Day</div><div class="header-metric-value">2026-01-28</div></div>
+        <div><div class="header-metric-label">History Days</div><div class="header-metric-value">92</div></div>
+        <div><div class="header-metric-label">CTL</div><div class="header-metric-value">74.4</div></div>
+        <div><div class="header-metric-label">ATL</div><div class="header-metric-value">124.1</div></div>
+        <div><div class="header-metric-label">TSB</div><div class="header-metric-value">-49.7</div></div>
+        <div><div class="header-metric-label">Latest TSS</div><div class="header-metric-value">139.0</div></div>
+        <div><div class="header-metric-label">FTP</div><div class="header-metric-value">260 W</div></div>
+        <div><div class="header-metric-label">Latest Sync</div><div class="header-metric-value">2026-01-28</div></div>
+        <div><div class="header-metric-label">Training hours</div><div class="header-metric-value">5.0</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Controls -->
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        
+        <input id="hours_input" type="number" step="0.5" class="hours-input" placeholder="Enter hours"/>
+
+        <button onclick="saveHoursAndRebuild()" class="save-button">
+            Save & Rebuild
+        </button>
+
+        <span id="save_status"></span>
+      </div>
+      <p id="save_status" class="small" style="text-align:right; margin:0;"></p>
+    </div>
+
+  </div>
+
+  <script>
+  function saveHours() {
+    const hours = document.getElementById("available_hours_input").value;
+    const status = document.getElementById("save_status");
+    status.innerText = "Saving…";
+    window.location.href = "mytrainingapp://save_hours?value=" + hours;
+
+    setTimeout(() => {
+      status.innerText = "Saved ✔";
+      setTimeout(() => {
+        status.innerText = "";
+      }, 2000);
+    }, 1000);
+  }
+  </script>
+</div>
+
+        
+    <div class="card training-load">
+        <h2>Training Load Status</h2>
+        <h3>Training Readiness</h3><p><strong>Score:</strong> 23/100 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Low</span></p><p><strong>Time to Fresh:</strong> 9 days</p><p><strong>Time to Peak:</strong> 11 days</p><h3>Load Status</h3><p><strong>Status:</strong> <span class='status-fresh'>Fresh</span></p><p><strong>TSB Trend (7 days, no load):</strong> 20.7 → 38.8</p><p>7 days since last activity</p><p>You’re well recovered. Good time for quality work.</p>
+    </div>
+    
+        
+    <div class="card fatigue-card">
+        <h2>Fatigue (Hybrid)</h2>
+        <p><strong>TSB:</strong> 20.7 <span class="badge badge-Fresh">good</span></p><p><strong>CTL:</strong> 62.9</p><p><strong>ATL:</strong> 42.2</p><h3>7‑Day Fatigue Forecast</h3><ul><li>Day 1: TSB -33.7</li><li>Day 2: TSB -20.2</li><li>Day 3: TSB -8.9</li><li>Day 4: TSB 0.6</li><li>Day 5: TSB 8.6</li><li>Day 6: TSB 15.2</li><li>Day 7: TSB 20.7</li></ul><h3>Next 3 Days: Suggested Sessions</h3><ul><li>Endurance</li><li>Tempo</li><li>Sweet spot</li></ul>
+    </div>
+    
+        
+    <div class="card race-readiness-card">
+        <h2>Race Readiness & Load Projection</h2>
+        <h3>Current Load & Fatigue</h3><p><strong>CTL:</strong> 62.9 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Below Target</span></p><p><strong>CTL Trend (7 days):</strong> <span style='color:#2ecc71;font-size:1.2em;'>▲</span></p><p><strong>ATL:</strong> 42.2</p><p><strong>TSB:</strong> 20.7 <span style='background:#2ecc71;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Fresh</span></p><h3>CTL Position vs Scenarios</h3>
+        <div style='width:100%;background:#333;border-radius:6px;height:12px;margin:6px 0;'>
+            <div style='width:0%;height:12px;border-radius:6px;
+                        background:linear-gradient(90deg,#e74c3c,#f1c40f,#2ecc71);'>
+            </div>
+        </div>
+        <div style='display:flex;justify-content:space-between;font-size:0.8em;opacity:0.8;'>
+            <span>Maintain (79.4)</span>
+            <span>Build (86.4)</span>
+            <span>Aggressive (92.4)</span>
+        </div>
+        <h3>Race Readiness</h3><p><strong>Score:</strong> 52/100 <span style='background:#f1c40f;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Building</span></p><h3>Performance Window</h3><p><strong>Status:</strong> <span class='badge pw-outside'>Outside Window</span></p><p>Your fatigue and fitness aren’t aligned for peak performance.</p><h3>Load Ramp Safety</h3><p><strong>Ramp Rate:</strong> <span class='badge ramp-high'>12.2 CTL/week</span></p><p>Ramp rate is high — increased injury risk.</p><h3>CTL Projection to Race Day (23/04/2026)</h3><table class='ctl-projection'><tr><th>Scenario</th><th>Race Day CTL</th></tr><tr><td>Maintain</td><td>79.4</td></tr><tr><td>Build</td><td>86.4</td></tr><tr><td>Aggressive</td><td>92.4</td></tr></table>
+    </div>
+    
+        
+        
+    <div class="card" style="grid-column: 1 / -1;">
+    
+    <div class="card week-calendar">
+        <h2>Week Calendar</h2>
+        <div class="week-calendar-grid">
+    
+        <div class="week-cell">
+            <div class="week-day-label">Monday</div>
+            <strong>Monday</strong>: Rest
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Tuesday</div>
+            
+                    <div class="week-session-text zone-race planned-session">
+                        <strong>Planned:</strong> WTRL Race – Zwift<br><span class='small'>1h</span><br><span class='small why-session'>Key intensity session to maintain or improve race‑specific fitness. Contributes about 95 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span>
+                        <div class="badge" style="margin-top:4px;">Race</div>
+                    </div>
+                
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Wednesday</div>
+            <strong>Wednesday</strong>: Rest
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Thursday</div>
+            
+                    <div class="week-session-text zone-sweetspot planned-session">
+                        <strong>Planned:</strong> Zwift GainTrain – Sweet Spot<br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span><br><span class='small'>229–244 W</span>
+                        <div class="badge" style="margin-top:4px;">Sweet Spot</div>
+                    </div>
+                
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Friday</div>
+            <strong>Friday</strong>: Rest
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Saturday</div>
+            
+                    <div class="week-session-text zone-endurance planned-session">
+                        <strong>Planned:</strong> Endurance – scaled from Endurance Ride – 3.5h<br><span class='small'>3h 30m</span><br><span class='small why-session'>Supports aerobic base and recovery without adding excessive fatigue.</span><br><span class='small'>146–195 W</span>
+                        <div class="badge" style="margin-top:4px;">Endurance</div>
+                    </div>
+                
+        </div>
+        
+        <div class="week-cell">
+            <div class="week-day-label">Sunday</div>
+            
+                    <div class="week-session-text zone-tempo planned-session">
+                        <strong>Planned:</strong> Tempo – 2h<br><span class='small'>2h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 95 TSS. Fits within your current time budget at ~2.0h. Leaves room for additional work later in the week.</span><br><span class='small'>198–234 W</span>
+                        <div class="badge" style="margin-top:4px;">Tempo</div>
+                    </div>
+                
+        </div>
+        </div></div>
+    </div>
+    
+
+        <div class="collapsible-card-header" onclick="toggleCard('prev-week')">
+            ▶ Previous Week
+        </div>
+        <div class="collapsible-card-content" id="prev-week" style="display:none;">
+            <h2>Previous Week</h2><div class='week-grid'><div class='day-column'><strong>Monday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Tuesday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Wednesday</strong><br>
+                <div class="session-card zone-tempo">
+                    <strong>2026-01-28</strong><br>
+                    Zwift - Group Ride: Standard - Stage 4 - Tour de Zwift on Greatest London Flat in London<br>
+                    0h 42m<br>
+                    [tempo] Contributes about 42 TSS at 256 W. Fits within your current time budget at ~0.7h.
+                </div>
+                
+                <div class="session-card zone-endurance">
+                    <strong>2026-01-28</strong><br>
+                    Zwift - Pacer Group Ride: BRAEk-fast Crits and Grits in Scotland with Coco<br>
+                    0h 50m<br>
+                    [endurance] Contributes about 50 TSS at 179 W. Fits within your current time budget at ~0.8h.
+                </div>
+                </div><div class='day-column'><strong>Thursday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Friday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Saturday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Sunday</strong><br><div class='session-card zone-rest'>Rest</div></div></div><p><strong>Total TSS:</strong> 92<br><strong>Total Duration:</strong> 1h 32m</p><p><strong>Intensity Summary:</strong> Mostly aerobic work — solid base building.</p>
+        </div>
+
+        <div class="collapsible-card-header" onclick="toggleCard('next-week')">
+            ▶ Next Week Plan
+        </div>
+        <div class="collapsible-card-content" id="next-week" style="display:none;">
+            <h2>Next Week Plan</h2><div class='week-grid'><div class='day-column'><strong>Monday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Tuesday</strong><br>
+                <div class="session-card zone-race">
+                    <strong>WTRL Race – Zwift</strong><br>
+                    1.0h — 95 TSS<br>
+                    Race
+                </div>
+                </div><div class='day-column'><strong>Wednesday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Thursday</strong><br>
+                <div class="session-card zone-threshold">
+                    <strong>Zwift GainTrain – Threshold</strong><br>
+                    1.0h — 85 TSS<br>
+                    Threshold
+                </div>
+                </div><div class='day-column'><strong>Friday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Saturday</strong><br>
+                <div class="session-card zone-endurance">
+                    <strong>Endurance Ride – 3.5h</strong><br>
+                    3.5h — 155 TSS<br>
+                    Endurance
+                </div>
+                </div><div class='day-column'><strong>Sunday</strong><br>
+                <div class="session-card zone-endurance">
+                    <strong>Endurance Ride – 2h</strong><br>
+                    2.0h — 90 TSS<br>
+                    Endurance
+                </div>
+                </div></div><p><strong>Planned Intensity Summary:</strong> Week skewed toward endurance work.</p>
+        </div>
+
+        
+    <div class="card adaptive-changes">
+        <h2>Adaptive Plan Changes</h2>
+        <p>After adapting to your available time and current load:</p>
+        <ul>
+            <li>Kept WTRL Race – Zwift on Tuesday (fits time and TSS).</li><li>Kept Zwift GainTrain – Sweet Spot on Thursday (fits time and TSS).</li><li>Kept Tempo – 2h on Sunday (fits time and TSS).</li><li>Replaced Endurance Ride – 3.5h on Saturday with Endurance – scaled from Endurance Ride – 3.5h to fit time/TSS.</li>
+        </ul>
+        <p class="small">
+            Remaining time budget: 0.0h<br>
+            Remaining TSS gap: 212 TSS
+        </p>
+    </div>
+    
+        
+        
+    <div class="card adaptive-load-summary">
+        <h2>Adaptive Load Summary</h2>
+        <p><strong>Target TSS:</strong> 390</p><p><strong>Actual TSS:</strong> 0</p><p><strong>Status:</strong> <span class='badge status-bad'>Behind</span></p><p>You're under target — consider adding volume or intensity.</p><p><strong>Planned TSS:</strong> 520<br><strong>Adjusted TSS:</strong> 390<br>High fatigue detected — reducing next week's load.</p><h3>Suggested Sessions to Close Gap (30 TSS remaining)</h3><ul><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li></ul>
+    </div>
+    
+        
+    <div class="card">
+        <h2>Time Availability</h2>
+        <p><strong>Available Hours:</strong> 5h 0m</p>
+        <p><strong>Scheduled:</strong> 7h 30m</p>
+        <p><strong>Remaining:</strong> 0h 0m</p>
+
+        <div style="margin-top:10px;">
+            <div style="background:#30363d; height:12px; border-radius:6px; width:100%;">
+                <div style="
+                    height:12px;
+                    border-radius:6px;
+                    width:100%;
+                    background:#238636;">
+                </div>
+            </div>
+            <p class="small">Scheduled vs Available</p>
+        </div>
+    </div>
+    
+        
+    <div class="card adaptive-load-summary">
+        <h2>Recommended Sessions</h2>
+        <p><strong>Target TSS: 390</strong></p>
+        <p><strong>Available Hours:</strong> 5.0h</p>
+        <p><strong>Scheduled:</strong> 7.5h</p>
+        <p><strong>Remaining:</strong> 0h 0m</p>
+        <ul><li><strong>Micro Tempo</strong> — Z3 short intervals (30 TSS)</li><li><strong>VO2 Max</strong> — Z5 intervals to drive fitness (80 TSS)</li></ul><p><strong>Remaining TSS to fill:</strong> 280</p>
+    </div>
+    
+
+        </div>
+    </div>
+
+    <script>
+    function openTab(evt, tabId) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        const target = document.getElementById(tabId);
+        if (target) {
+            target.classList.add('active');
+        }
+
+    document.querySelectorAll('.tab-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        evt.currentTarget.classList.add('active');
+    }
+    </script>
+
+    <script>
+    function toggleCard(id) {
+    const content = document.getElementById(id);
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+    }
+    </script>
+
+</body>
+</html>
