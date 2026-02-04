@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     <title>Training Dashboard</title>
 
@@ -434,6 +435,78 @@
             background-color: #1e1e1e;
         }
 
+        /* ============================================
+        MOBILE OPTIMISATION — iPhone Friendly Layout
+        ============================================ */
+
+        @media (max-width: 768px) {
+
+            /* Global spacing */
+            body {
+                padding: 12px;
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+        /* Cards become full-width stacked blocks */
+        .card {
+            width: 100% !important;
+            margin: 0 0 16px 0 !important;
+            padding: 16px !important;
+            box-sizing: border-box;
+        }
+
+        /* Header layout fixes */
+        .header-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            width: 100%;
+        }
+
+        /* Summary grids collapse to single column */
+        .summary-grid {
+            display: grid;
+        grid-template-columns: 1fr !important;
+            gap: 12px;
+            width: 100%;
+        }
+
+        /* Session rows stack vertically */
+        .session-row {
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+            width: 100%;
+        }
+
+        /* Buttons and inputs become touch-friendly */
+        button,
+        input[type="text"],
+        select {
+            font-size: 16px !important;
+            padding: 12px 16px !important;
+            border-radius: 8px !important;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Charts resize properly */
+        .chart-container {
+        width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: auto !important;
+        }
+
+        /* Tables scroll horizontally instead of breaking layout */
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            border-collapse: collapse;
+        }
+    }
     </style>
 </head>
 
