@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d1117">
     <meta charset="UTF-8" />
     <title>Training Dashboard</title>
 
@@ -507,6 +509,61 @@
             border-collapse: collapse;
         }
     }
+    
+    /* ============================================
+    iPhone 14/15 Optimisation
+    ============================================ */
+
+    @media (max-width: 430px) {
+
+        body {
+            padding: 12px;
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .card {
+            width: 100%;
+            margin: 0 0 16px 0;
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .header-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .summary-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .session-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        button,
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 14px;
+            font-size: 17px;
+            border-radius: 10px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+    }
+    
+    
     </style>
 </head>
 
@@ -601,19 +658,19 @@
         
     <div class="card training-load">
         <h2>Training Load Status</h2>
-        <h3>Training Readiness</h3><p><strong>Score:</strong> 23/100 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Low</span></p><p><strong>Time to Fresh:</strong> 9 days</p><p><strong>Time to Peak:</strong> 11 days</p><h3>Load Status</h3><p><strong>Status:</strong> <span class='status-fresh'>Fresh</span></p><p><strong>TSB Trend (7 days, no load):</strong> 20.7 → 38.8</p><p>7 days since last activity</p><p>You’re well recovered. Good time for quality work.</p>
+        <h3>Training Readiness</h3><p><strong>Score:</strong> 23/100 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Low</span></p><p><strong>Time to Fresh:</strong> 9 days</p><p><strong>Time to Peak:</strong> 11 days</p><h3>Load Status</h3><p><strong>Status:</strong> <span class='status-fresh'>Fresh</span></p><p><strong>TSB Trend (7 days, no load):</strong> 25.2 → 39.6</p><p>8 days since last activity</p><p>You’re well recovered. Good time for quality work.</p>
     </div>
     
         
     <div class="card fatigue-card">
         <h2>Fatigue (Hybrid)</h2>
-        <p><strong>TSB:</strong> 20.7 <span class="badge badge-Fresh">good</span></p><p><strong>CTL:</strong> 62.9</p><p><strong>ATL:</strong> 42.2</p><h3>7‑Day Fatigue Forecast</h3><ul><li>Day 1: TSB -33.7</li><li>Day 2: TSB -20.2</li><li>Day 3: TSB -8.9</li><li>Day 4: TSB 0.6</li><li>Day 5: TSB 8.6</li><li>Day 6: TSB 15.2</li><li>Day 7: TSB 20.7</li></ul><h3>Next 3 Days: Suggested Sessions</h3><ul><li>Endurance</li><li>Tempo</li><li>Sweet spot</li></ul>
+        <p><strong>TSB:</strong> 25.2 <span class="badge badge-Fresh">good</span></p><p><strong>CTL:</strong> 61.4</p><p><strong>ATL:</strong> 36.1</p><h3>7‑Day Fatigue Forecast</h3><ul><li>Day 1: TSB -33.7</li><li>Day 2: TSB -20.2</li><li>Day 3: TSB -8.9</li><li>Day 4: TSB 0.6</li><li>Day 5: TSB 8.6</li><li>Day 6: TSB 15.2</li><li>Day 7: TSB 20.7</li></ul><h3>Next 3 Days: Suggested Sessions</h3><ul><li>Endurance</li><li>Tempo</li><li>Sweet spot</li></ul>
     </div>
     
         
     <div class="card race-readiness-card">
         <h2>Race Readiness & Load Projection</h2>
-        <h3>Current Load & Fatigue</h3><p><strong>CTL:</strong> 62.9 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Below Target</span></p><p><strong>CTL Trend (7 days):</strong> <span style='color:#2ecc71;font-size:1.2em;'>▲</span></p><p><strong>ATL:</strong> 42.2</p><p><strong>TSB:</strong> 20.7 <span style='background:#2ecc71;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Fresh</span></p><h3>CTL Position vs Scenarios</h3>
+        <h3>Current Load & Fatigue</h3><p><strong>CTL:</strong> 61.4 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Below Target</span></p><p><strong>CTL Trend (7 days):</strong> <span style='color:#2ecc71;font-size:1.2em;'>▲</span></p><p><strong>ATL:</strong> 36.1</p><p><strong>TSB:</strong> 25.2 <span style='background:#2ecc71;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Fresh</span></p><h3>CTL Position vs Scenarios</h3>
         <div style='width:100%;background:#333;border-radius:6px;height:12px;margin:6px 0;'>
             <div style='width:0%;height:12px;border-radius:6px;
                         background:linear-gradient(90deg,#e74c3c,#f1c40f,#2ecc71);'>
@@ -624,7 +681,7 @@
             <span>Build (86.4)</span>
             <span>Aggressive (92.4)</span>
         </div>
-        <h3>Race Readiness</h3><p><strong>Score:</strong> 52/100 <span style='background:#f1c40f;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Building</span></p><h3>Performance Window</h3><p><strong>Status:</strong> <span class='badge pw-outside'>Outside Window</span></p><p>Your fatigue and fitness aren’t aligned for peak performance.</p><h3>Load Ramp Safety</h3><p><strong>Ramp Rate:</strong> <span class='badge ramp-high'>12.2 CTL/week</span></p><p>Ramp rate is high — increased injury risk.</p><h3>CTL Projection to Race Day (23/04/2026)</h3><table class='ctl-projection'><tr><th>Scenario</th><th>Race Day CTL</th></tr><tr><td>Maintain</td><td>79.4</td></tr><tr><td>Build</td><td>86.4</td></tr><tr><td>Aggressive</td><td>92.4</td></tr></table>
+        <h3>Race Readiness</h3><p><strong>Score:</strong> 52/100 <span style='background:#f1c40f;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Building</span></p><h3>Performance Window</h3><p><strong>Status:</strong> <span class='badge pw-too-fresh'>Too Fresh</span></p><p>You’re very fresh — fitness may not be fully expressed.</p><h3>Load Ramp Safety</h3><p><strong>Ramp Rate:</strong> <span class='badge ramp-high'>12.2 CTL/week</span></p><p>Ramp rate is high — increased injury risk.</p><h3>CTL Projection to Race Day (23/04/2026)</h3><table class='ctl-projection'><tr><th>Scenario</th><th>Race Day CTL</th></tr><tr><td>Maintain</td><td>79.4</td></tr><tr><td>Build</td><td>86.4</td></tr><tr><td>Aggressive</td><td>92.4</td></tr></table>
     </div>
     
         
@@ -697,21 +754,7 @@
             ▶ Previous Week
         </div>
         <div class="collapsible-card-content" id="prev-week" style="display:none;">
-            <h2>Previous Week</h2><div class='week-grid'><div class='day-column'><strong>Monday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Tuesday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Wednesday</strong><br>
-                <div class="session-card zone-tempo">
-                    <strong>2026-01-28</strong><br>
-                    Zwift - Group Ride: Standard - Stage 4 - Tour de Zwift on Greatest London Flat in London<br>
-                    0h 42m<br>
-                    [tempo] Contributes about 42 TSS at 256 W. Fits within your current time budget at ~0.7h.
-                </div>
-                
-                <div class="session-card zone-endurance">
-                    <strong>2026-01-28</strong><br>
-                    Zwift - Pacer Group Ride: BRAEk-fast Crits and Grits in Scotland with Coco<br>
-                    0h 50m<br>
-                    [endurance] Contributes about 50 TSS at 179 W. Fits within your current time budget at ~0.8h.
-                </div>
-                </div><div class='day-column'><strong>Thursday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Friday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Saturday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Sunday</strong><br><div class='session-card zone-rest'>Rest</div></div></div><p><strong>Total TSS:</strong> 92<br><strong>Total Duration:</strong> 1h 32m</p><p><strong>Intensity Summary:</strong> Mostly aerobic work — solid base building.</p>
+            <h2>Previous Week</h2><p>No activities found in the last 7 days.</p>
         </div>
 
         <div class="collapsible-card-header" onclick="toggleCard('next-week')">
