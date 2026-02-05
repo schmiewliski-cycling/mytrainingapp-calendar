@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workout_file><name>WTRL Race â€“ Zwift</name><description>Auto-generated from training plan. Zone: Race</description><workout><Warmup Duration="540" PowerLow="0.482" PowerHigh="0.911" /><IntervalsT Repeat="20" OnDuration="60" OffDuration="15" PowerOnLow="0.9" PowerOnHigh="1.2" PowerOffLow="0.5" PowerOffHigh="0.6" /><Cooldown Duration="540" PowerLow="0.482" PowerHigh="0.578" /></workout></workout_file>
