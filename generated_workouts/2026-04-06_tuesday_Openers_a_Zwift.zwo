@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workout_file><name>Openers â€“ Zwift</name><description>Auto-generated from training plan. Zone: Threshold</description><workout><Warmup Duration="405" PowerLow="0.454" PowerHigh="0.776" /><SteadyState Duration="480" Power="0.862" /><SteadyState Duration="240" Power="0.545" /><SteadyState Duration="480" Power="0.862" /><SteadyState Duration="240" Power="0.545" /><SteadyState Duration="480" Power="0.862" /><Cooldown Duration="405" PowerLow="0.454" PowerHigh="0.545" /></workout></workout_file>

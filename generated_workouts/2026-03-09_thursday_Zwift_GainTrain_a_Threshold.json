@@ -1,0 +1,50 @@
+{
+  "total_duration_sec": 3600,
+  "estimated_if": 0.75,
+  "estimated_tss": 56.2,
+  "target_tss": 85,
+  "blocks": [
+    {
+      "type": "Warmup",
+      "duration_sec": 540,
+      "power_low": 0.493,
+      "power_high": 0.842
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 480,
+      "power": 0.936
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 240,
+      "power": 0.591
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 480,
+      "power": 0.936
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 240,
+      "power": 0.591
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 480,
+      "power": 0.936
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 600,
+      "power": 0.69
+    },
+    {
+      "type": "Cooldown",
+      "duration_sec": 540,
+      "power_low": 0.493,
+      "power_high": 0.591
+    }
+  ]
+}

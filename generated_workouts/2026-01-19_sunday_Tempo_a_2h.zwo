@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workout_file><name>Tempo â€“ 2h</name><description>Auto-generated from training plan. Zone: Tempo</description><workout><Warmup Duration="600" PowerLow="0.465" PowerHigh="0.67" /><SteadyState Duration="6000" Power="0.745" /><Cooldown Duration="600" PowerLow="0.465" PowerHigh="0.558" /></workout></workout_file>

@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workout_file><name>Endurance Ride â€“ 2.5h</name><description>Auto-generated from training plan. Zone: Endurance</description><workout><Warmup Duration="600" PowerLow="0.511" PowerHigh="0.598" /><SteadyState Duration="7800" Power="0.664" /><Cooldown Duration="600" PowerLow="0.511" PowerHigh="0.613" /></workout></workout_file>

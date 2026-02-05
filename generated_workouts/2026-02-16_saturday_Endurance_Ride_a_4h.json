@@ -1,0 +1,25 @@
+{
+  "total_duration_sec": 14400,
+  "estimated_if": 0.651,
+  "estimated_tss": 169.7,
+  "target_tss": 180,
+  "blocks": [
+    {
+      "type": "Warmup",
+      "duration_sec": 600,
+      "power_low": 0.508,
+      "power_high": 0.594
+    },
+    {
+      "type": "SteadyState",
+      "duration_sec": 13200,
+      "power": 0.66
+    },
+    {
+      "type": "Cooldown",
+      "duration_sec": 600,
+      "power_low": 0.508,
+      "power_high": 0.61
+    }
+  ]
+}

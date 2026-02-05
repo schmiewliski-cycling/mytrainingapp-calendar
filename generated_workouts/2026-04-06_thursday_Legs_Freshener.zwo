@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workout_file><name>Legs Freshener</name><description>Auto-generated from training plan. Zone: Recovery</description><workout><Warmup Duration="270" PowerLow="0.476" PowerHigh="0.6" /><SteadyState Duration="1260" Power="0.666" /><Cooldown Duration="270" PowerLow="0.476" PowerHigh="0.571" /></workout></workout_file>
