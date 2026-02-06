@@ -1102,6 +1102,9 @@ async function loadTooltipPreview(workoutId) {
 
   const jsonFile = container.dataset.json;
 
+  inline.style.background = "red";
+  inline.style.height = "10px";
+
   try {
     const res = await fetch("/generated_workouts/" + jsonFile);
     if (!res.ok) {
