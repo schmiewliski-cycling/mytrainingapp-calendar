@@ -177,6 +177,11 @@
 /*        }
 
         .week-cell {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: normal;
+            max-width: 100%;
+            box-sizing: border-box;
             background-colour: #0d1117;
             border: 1px solid #30363d;
             border-radius: 6px;
@@ -188,7 +193,16 @@
             margin-bottom: 6px;
         }
 
-        .week-session-text {
+        .week-session-text,
+        .session-card,
+        .activity-block {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: normal;
+        }
+
+{
             font-size: 0.9rem;
             line-height: 1.3;
         }
