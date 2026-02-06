@@ -518,16 +518,20 @@
         }
 
         .inline-block {
-            height: 6px;
+            margin-right: 1px;
             border-radius: 3px;
-            flex-shrink: 0;
+            box-shadow: 0 0 3px rgba(0,0,0,0.4);
         }
 
-        .inline-warmup { background: #7fd6f0; }
-        .inline-steadystate { background: #ffe066; }
-        .inline-cooldown { background: #4fbf7a; }
-        .inline-interval { background: #ff6b6b; }
-        .inline-other { background: #aaa; }
+        .inline-block:last-child {
+            margin-right: 0;
+            }
+
+        .inline-warmup      { background: #4CC3FF; }   /* Zwift blue */
+        .inline-steadystate { background: #FFD23F; }   /* Zwift yellow */
+        .inline-interval    { background: #FF6A3D; }   /* Zwift orange-red */
+        .inline-cooldown    { background: #4CAF50; }   /* Zwift green */
+        .inline-other       { background: #888; }
 
         .week-session-text {
             overflow: visible !important;
@@ -535,16 +539,18 @@
 
         .inline-preview {
             display: flex;
+            align-items: center;
             gap: 2px;
-            margin-top: 6px;
-            padding: 3px;
-            background: rgba(0,0,0,0.25);   /* neutral contrast layer */
+            margin-top: 8px;
+            padding: 4px;
+            background: #0d0d0d;       /* Zwift-style dark track */
             border-radius: 4px;
-            overflow: hidden;               /* prevents spillover */
+            overflow: hidden;          /* Prevent spillover */
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.4);
         }
 
         .inline-block {
-            height: 6px;
+            height: 10px;
             border-radius: 2px;
             flex-shrink: 0;
         }
