@@ -581,6 +581,24 @@
             line-height: 1.2;
         }
 
+        .inline-preview {
+            margin-top: 6px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .inline-block {
+            height: 6px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .inline-warmup { background: #5bc0de; }      /* Light blue */
+        .inline-steadystate { background: #ffd700; } /* Yellow */
+        .inline-cooldown { background: #2e8b57; }    /* Green */
+        .inline-interval { background: #d9534f; }    /* Red */
+        .inline-other { background: #888; }          /* Grey */
+
         /* Tables scroll horizontally instead of breaking layout */
         table {
             display: block;
@@ -858,7 +876,7 @@
                     </div>
                 
                     <div class="week-session-text zone-race planned-session">
-                        <strong>Planned:</strong> WTRL Race a Zwift<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo' download='2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-03_tuesday_WTRL_Race_a_Zwift' data-json='2026-02-03_tuesday_WTRL_Race_a_Zwift.json'>Loading…</div></div><br><span class='small'>1h</span><br><span class='small why-session'>Key intensity session to maintain or improve race‑specific fitness. Contributes about 60 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span>
+                        <strong>Planned:</strong> WTRL Race a Zwift<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo' download='2026-02-03_tuesday_WTRL_Race_a_Zwift.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-03_tuesday_WTRL_Race_a_Zwift' data-json='2026-02-03_tuesday_WTRL_Race_a_Zwift.json'>Loading…</div><div class='inline-preview' id='inline-2026-02-03_tuesday_WTRL_Race_a_Zwift'></div></div><br><span class='small'>1h</span><br><span class='small why-session'>Key intensity session to maintain or improve race‑specific fitness. Contributes about 60 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span>
                         <div class="badge" style="margin-top:4px;">Race</div>
                     </div>
                 
@@ -893,7 +911,7 @@
                     </div>
                 
                     <div class="week-session-text zone-sweetspot planned-session">
-                        <strong>Planned:</strong> Zwift GainTrain a Sweet Spot<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo' download='2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot' data-json='2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.json'>Loading…</div></div><br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Helps close most of your remaining TSS gap.</span><br><span class='small'>229–244 W</span><br><span class='small'>(3.55–3.79 W/kg)</span>
+                        <strong>Planned:</strong> Zwift GainTrain a Sweet Spot<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo' download='2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot' data-json='2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot.json'>Loading…</div><div class='inline-preview' id='inline-2026-02-05_thursday_Zwift_GainTrain_a_Sweet_Spot'></div></div><br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Helps close most of your remaining TSS gap.</span><br><span class='small'>229–244 W</span><br><span class='small'>(3.55–3.79 W/kg)</span>
                         <div class="badge" style="margin-top:4px;">Sweet Spot</div>
                     </div>
                 
@@ -913,7 +931,7 @@
                     </div>
                 
                     <div class="week-session-text zone-endurance planned-session">
-                        <strong>Planned:</strong> Endurance Ride a 3.5h<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo' download='2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-07_saturday_Endurance_Ride_a_3_5h' data-json='2026-02-07_saturday_Endurance_Ride_a_3.5h.json'>Loading…</div></div><br><span class='small'>1h</span><br><span class='small why-session'>Supports aerobic base and recovery without adding excessive fatigue. Contributes about 60 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span><br><span class='small'>146–195 W</span><br><span class='small'>(2.27–3.03 W/kg)</span>
+                        <strong>Planned:</strong> Endurance Ride a 3.5h<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo' download='2026-02-07_saturday_Endurance_Ride_a_3.5h.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-07_saturday_Endurance_Ride_a_3_5h' data-json='2026-02-07_saturday_Endurance_Ride_a_3.5h.json'>Loading…</div><div class='inline-preview' id='inline-2026-02-07_saturday_Endurance_Ride_a_3_5h'></div></div><br><span class='small'>1h</span><br><span class='small why-session'>Supports aerobic base and recovery without adding excessive fatigue. Contributes about 60 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span><br><span class='small'>146–195 W</span><br><span class='small'>(2.27–3.03 W/kg)</span>
                         <div class="badge" style="margin-top:4px;">Endurance</div>
                     </div>
                 
@@ -928,7 +946,7 @@
                     </div>
                 
                     <div class="week-session-text zone-tempo planned-session">
-                        <strong>Planned:</strong> Tempo a 2h<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-08_sunday_Tempo_a_2h.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-08_sunday_Tempo_a_2h.zwo' download='2026-02-08_sunday_Tempo_a_2h.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-08_sunday_Tempo_a_2h' data-json='2026-02-08_sunday_Tempo_a_2h.json'>Loading…</div></div><br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Helps close most of your remaining TSS gap.</span><br><span class='small'>198–234 W</span><br><span class='small'>(3.07–3.63 W/kg)</span>
+                        <strong>Planned:</strong> Tempo a 2h<div class='zwo-tooltip'><br><span class='zwo-file-name'>ZWO: 2026-02-08_sunday_Tempo_a_2h.zwo</span><br><a class='btn-download' href='/generated_workouts/2026-02-08_sunday_Tempo_a_2h.zwo' download='2026-02-08_sunday_Tempo_a_2h.zwo'><img src='/icons/zwift.png' class='zwift-icon'>Download ZWO</a><div class='tooltip-content' id='tooltip-2026-02-08_sunday_Tempo_a_2h' data-json='2026-02-08_sunday_Tempo_a_2h.json'>Loading…</div><div class='inline-preview' id='inline-2026-02-08_sunday_Tempo_a_2h'></div></div><br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Helps close most of your remaining TSS gap.</span><br><span class='small'>198–234 W</span><br><span class='small'>(3.07–3.63 W/kg)</span>
                         <div class="badge" style="margin-top:4px;">Tempo</div>
                     </div>
                 
@@ -1065,7 +1083,6 @@ async function loadTooltipPreview(workoutId) {
   const container = document.getElementById("tooltip-" + workoutId);
   if (!container) return;
 
-  // Get the REAL JSON filename (with dots)
   const jsonFile = container.dataset.json;
 
   try {
@@ -1111,6 +1128,34 @@ async function loadTooltipPreview(workoutId) {
 
     html += `</div>`;
     container.innerHTML = html;
+
+    // ----------------------------------------------------
+    // MINI INLINE PREVIEW (correctly placed inside try)
+    // ----------------------------------------------------
+    const inline = document.getElementById("inline-" + workoutId);
+    if (inline) {
+      inline.innerHTML = "";
+
+      const total = data.total_duration_sec;
+
+      data.blocks.forEach(b => {
+        const width = (b.duration_sec / total) * 100;
+
+        let cls = "inline-other";
+        const t = b.type.toLowerCase();
+        if (t.includes("warm")) cls = "inline-warmup";
+        else if (t.includes("steady")) cls = "inline-steadystate";
+        else if (t.includes("cool")) cls = "inline-cooldown";
+        else if (t.includes("interval") || t.includes("sweet") || t.includes("threshold"))
+          cls = "inline-interval";
+
+        const div = document.createElement("div");
+        div.className = "inline-block " + cls;
+        div.style.width = width + "%";
+
+        inline.appendChild(div);
+      });
+    }
 
   } catch (e) {
     container.textContent = "Error loading preview.";
