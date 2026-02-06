@@ -554,7 +554,8 @@
         .inline-block {
             height: 10px;
             border-radius: 2px;
-            flex-shrink: 0;
+            flex-shrink: 1;   /* allow shrinking */
+            flex-basis: 0;    /* required for flexGrow to work properly */
         }
 
         .week-session-text {
@@ -1211,7 +1212,7 @@ async function loadTooltipPreview(workoutId) {
 
         const div = document.createElement("div");
         div.className = "inline-block " + cls;
-        div.style.width = width + "%";
+        div.style.flexGrow = b.duration_sec;
 
         inline.appendChild(div);
       });
