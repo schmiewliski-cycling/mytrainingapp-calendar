@@ -1096,14 +1096,12 @@
     </script>
 
 <script>
+console.log("INLINE PREVIEW:", workoutId);
 async function loadTooltipPreview(workoutId) {
   const container = document.getElementById("tooltip-" + workoutId);
   if (!container) return;
 
   const jsonFile = container.dataset.json;
-
-  inline.style.background = "red";
-  inline.style.height = "10px";
 
   try {
     const res = await fetch("/generated_workouts/" + jsonFile);
