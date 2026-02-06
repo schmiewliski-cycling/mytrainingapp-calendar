@@ -508,6 +508,54 @@
             font-size: 1rem !important;
         }
 
+        .zwo-file-name {
+            display: block;
+            font-size: 0.8rem;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+
+        .inline-preview {
+            margin-top: 6px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .inline-block {
+            height: 6px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .inline-warmup { background: #5bc0de; }      /* Light blue */
+        .inline-steadystate { background: #ffd700; } /* Yellow */
+        .inline-cooldown { background: #2e8b57; }    /* Green */
+        .inline-interval { background: #d9534f; }    /* Red */
+        .inline-other { background: #888; }          /* Grey */
+
+        .week-session-text {
+            overflow: visible !important;
+        }
+
+        .inline-preview {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+            overflow: visible !important;
+        }
+
+        .inline-block {
+            height: 6px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .week-session-text {
+            margin-bottom: 12px;
+        }
+
         /* ============================================
         MOBILE OPTIMISATION — iPhone Friendly Layout
         ============================================ */
@@ -572,49 +620,7 @@
             overflow-x: auto !important;
         }
 
-        .zwo-file-name {
-            display: block;
-            font-size: 0.8rem;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            white-space: normal;
-            line-height: 1.2;
-        }
 
-        .inline-preview {
-            margin-top: 6px;
-            display: flex;
-            gap: 4px;
-        }
-
-        .inline-block {
-            height: 6px;
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
-
-        .inline-warmup { background: #5bc0de; }      /* Light blue */
-        .inline-steadystate { background: #ffd700; } /* Yellow */
-        .inline-cooldown { background: #2e8b57; }    /* Green */
-        .inline-interval { background: #d9534f; }    /* Red */
-        .inline-other { background: #888; }          /* Grey */
-
-        .week-session-text {
-            overflow: visible !important;
-        }
-
-        .inline-preview {
-            display: flex;
-            gap: 4px;
-            margin-top: 6px;
-            overflow: visible !important;
-        }
-
-        .inline-block {
-            height: 6px;
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
 
         /* Tables scroll horizontally instead of breaking layout */
         table {
