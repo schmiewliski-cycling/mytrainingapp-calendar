@@ -601,7 +601,54 @@
         }
     }
     
-    
+
+        .session-workout-preview {
+            font-size: 0.85rem;
+            color: #ddd;
+            margin-top: 0.5rem;
+        }
+
+        .workout-summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .workout-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.3rem;
+        }
+
+        .workout-block {
+            background: #1b1f2a;
+            border-radius: 4px;
+            padding: 0.3rem 0.4rem;
+        }
+
+        .block-label {
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .block-meta {
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            background: #ff7b00;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
     </style>
 </head>
 
@@ -647,14 +694,14 @@
       </div>
 
       <div class="header-metrics" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:12px;">
-        <div><div class="header-metric-label">Last Training Day</div><div class="header-metric-value">2026-01-28</div></div>
+        <div><div class="header-metric-label">Last Training Day</div><div class="header-metric-value">2026-02-05</div></div>
         <div><div class="header-metric-label">History Days</div><div class="header-metric-value">61</div></div>
-        <div><div class="header-metric-label">CTL</div><div class="header-metric-value">67.5</div></div>
-        <div><div class="header-metric-label">ATL</div><div class="header-metric-value">124.1</div></div>
-        <div><div class="header-metric-label">TSB</div><div class="header-metric-value">-56.6</div></div>
-        <div><div class="header-metric-label">Latest TSS</div><div class="header-metric-value">139.0</div></div>
+        <div><div class="header-metric-label">CTL</div><div class="header-metric-value">87.0</div></div>
+        <div><div class="header-metric-label">ATL</div><div class="header-metric-value">127.4</div></div>
+        <div><div class="header-metric-label">TSB</div><div class="header-metric-value">-40.4</div></div>
+        <div><div class="header-metric-label">Latest TSS</div><div class="header-metric-value">149.0</div></div>
         <div><div class="header-metric-label">FTP</div><div class="header-metric-value">260 W</div></div>
-        <div><div class="header-metric-label">Latest Sync</div><div class="header-metric-value">2026-01-28</div></div>
+        <div><div class="header-metric-label">Latest Sync</div><div class="header-metric-value">2026-02-05</div></div>
         <div><div class="header-metric-label">Training hours</div><div class="header-metric-value">5.0</div></div>
       </div>
     </div>
@@ -696,30 +743,30 @@
         
     <div class="card training-load">
         <h2>Training Load Status</h2>
-        <h3>Training Readiness</h3><p><strong>Score:</strong> 15/100 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Low</span></p><p><strong>Time to Fresh:</strong> 11 days</p><p><strong>Time to Peak:</strong> 13 days</p><h3>Load Status</h3><p><strong>Status:</strong> <span class='status-fresh'>Fresh</span></p><p><strong>TSB Trend (7 days, no load):</strong> 19.5 → 34.7</p><p>8 days since last activity</p><p>You’re well recovered. Good time for quality work.</p>
+        <h3>Training Readiness</h3><p><strong>Score:</strong> 33/100 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Low</span></p><p><strong>Time to Fresh:</strong> 8 days</p><p><strong>Time to Peak:</strong> 10 days</p><h3>Load Status</h3><p><strong>Status:</strong> <span class='status-fatigued'>FATIGUED</span></p><p><strong>TSB Trend (7 days, no load):</strong> -40.4 → 30.2</p><p>0 days since last activity</p><p>You’re carrying high training load. Consider recovery before key efforts.</p>
     </div>
     
         
     <div class="card fatigue-card">
         <h2>Fatigue (Hybrid)</h2>
-        <p><strong>TSB:</strong> 19.5 <span class="badge badge-Fresh">good</span></p><p><strong>CTL:</strong> 55.7</p><p><strong>ATL:</strong> 36.1</p><h3>7‑Day Fatigue Forecast</h3><ul><li>Day 1: TSB -40.4</li><li>Day 2: TSB -26.8</li><li>Day 3: TSB -15.3</li><li>Day 4: TSB -5.7</li><li>Day 5: TSB 2.4</li><li>Day 6: TSB 9.2</li><li>Day 7: TSB 14.9</li></ul><h3>Next 3 Days: Suggested Sessions</h3><ul><li>Endurance</li><li>Tempo</li><li>Sweet spot</li></ul>
+        <p><strong>TSB:</strong> -40.4 <span class="badge badge-Fatigued">bad</span></p><p><strong>CTL:</strong> 87.0</p><p><strong>ATL:</strong> 127.4</p><h3>7‑Day Fatigue Forecast</h3><ul><li>Day 1: TSB -24.3</li><li>Day 2: TSB -10.7</li><li>Day 3: TSB 0.7</li><li>Day 4: TSB 10.2</li><li>Day 5: TSB 18.2</li><li>Day 6: TSB 24.7</li><li>Day 7: TSB 30.2</li></ul><h3>Next 3 Days: Suggested Sessions</h3><ul><li>Endurance</li><li>Tempo</li><li>Sweet spot</li></ul>
     </div>
     
         
     <div class="card race-readiness-card">
         <h2>Race Readiness & Load Projection</h2>
-        <h3>Current Load & Fatigue</h3><p><strong>CTL:</strong> 55.7 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Below Target</span></p><p><strong>CTL Trend (7 days):</strong> <span style='color:#2ecc71;font-size:1.2em;'>▲</span></p><p><strong>ATL:</strong> 36.1</p><p><strong>TSB:</strong> 19.5 <span style='background:#2ecc71;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Fresh</span></p><h3>CTL Position vs Scenarios</h3>
+        <h3>Current Load & Fatigue</h3><p><strong>CTL:</strong> 87.0 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Below Target</span></p><p><strong>CTL Trend (7 days):</strong> <span style='color:#2ecc71;font-size:1.2em;'>▲</span></p><p><strong>ATL:</strong> 127.4</p><p><strong>TSB:</strong> -40.4 <span style='background:#e74c3c;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Fatigued</span></p><h3>CTL Position vs Scenarios</h3>
         <div style='width:100%;background:#333;border-radius:6px;height:12px;margin:6px 0;'>
             <div style='width:0%;height:12px;border-radius:6px;
                         background:linear-gradient(90deg,#e74c3c,#f1c40f,#2ecc71);'>
             </div>
         </div>
         <div style='display:flex;justify-content:space-between;font-size:0.8em;opacity:0.8;'>
-            <span>Maintain (72.5)</span>
-            <span>Build (79.5)</span>
-            <span>Aggressive (85.5)</span>
+            <span>Maintain (92.0)</span>
+            <span>Build (99.0)</span>
+            <span>Aggressive (105.0)</span>
         </div>
-        <h3>Race Readiness</h3><p><strong>Score:</strong> 50/100 <span style='background:#f1c40f;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Building</span></p><h3>Performance Window</h3><p><strong>Status:</strong> <span class='badge pw-outside'>Outside Window</span></p><p>Your fatigue and fitness aren’t aligned for peak performance.</p><h3>Load Ramp Safety</h3><p><strong>Ramp Rate:</strong> <span class='badge ramp-high'>13.5 CTL/week</span></p><p>Ramp rate is high — increased injury risk.</p><h3>CTL Projection to Race Day (23/04/2026)</h3><table class='ctl-projection'><tr><th>Scenario</th><th>Race Day CTL</th></tr><tr><td>Maintain</td><td>72.5</td></tr><tr><td>Build</td><td>79.5</td></tr><tr><td>Aggressive</td><td>85.5</td></tr></table>
+        <h3>Race Readiness</h3><p><strong>Score:</strong> 59/100 <span style='background:#f1c40f;padding:4px 8px;border-radius:6px;font-size:0.85em;'>Building</span></p><h3>Performance Window</h3><p><strong>Status:</strong> <span class='badge pw-not-ready'>Not Yet</span></p><p>You need more recovery before peak performance.</p><h3>Load Ramp Safety</h3><p><strong>Ramp Rate:</strong> <span class='badge ramp-medium'>7.8 CTL/week</span></p><p>Ramp rate is elevated — monitor fatigue closely.</p><h3>CTL Projection to Race Day (23/04/2026)</h3><table class='ctl-projection'><tr><th>Scenario</th><th>Race Day CTL</th></tr><tr><td>Maintain</td><td>92.0</td></tr><tr><td>Build</td><td>99.0</td></tr><tr><td>Aggressive</td><td>105.0</td></tr></table>
     </div>
     
         
@@ -753,6 +800,21 @@
         <div class="week-cell">
             <div class="week-day-label">Thursday</div>
             
+                    <div class="week-session-text zone-endurance actual-session">
+                        <strong>Actual:</strong> Zwift - Pacer Group Ride: The Magnificent 8 in Watopia with Coco<br><span class='small'>22m</span><br><span class='small why-session'>Contributes about 22 TSS at 186 W. Fits within your current time budget at ~0.4h. Leaves room for additional work later in the week.</span>
+                        <div class="badge" style="margin-top:4px;">Endurance</div>
+                    </div>
+                
+                    <div class="week-session-text zone-tempo actual-session">
+                        <strong>Actual:</strong> Zwift - Group Ride:  Hotchillee Gain Train  (B) on The 6 Train in New York<br><span class='small'>47m</span><br><span class='small why-session'>Contributes about 47 TSS at 231 W. Fits within your current time budget at ~0.8h. Leaves room for additional work later in the week.</span>
+                        <div class="badge" style="margin-top:4px;">Tempo</div>
+                    </div>
+                
+                    <div class="week-session-text zone-endurance actual-session">
+                        <strong>Actual:</strong> Zwift - Watopia<br><span class='small'>26m</span><br><span class='small why-session'>Contributes about 26 TSS at 161 W. Fits within your current time budget at ~0.4h. Leaves room for additional work later in the week.</span>
+                        <div class="badge" style="margin-top:4px;">Endurance</div>
+                    </div>
+                
                     <div class="week-session-text zone-sweetspot planned-session">
                         <strong>Planned:</strong> Zwift GainTrain – Sweet Spot<br><span class='small'>1h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 75 TSS. Fits within your current time budget at ~1.0h. Leaves room for additional work later in the week.</span><br><span class='small'>229–244 W</span>
                         <div class="badge" style="margin-top:4px;">Sweet Spot</div>
@@ -767,19 +829,14 @@
         
         <div class="week-cell">
             <div class="week-day-label">Saturday</div>
-            
-                    <div class="week-session-text zone-endurance planned-session">
-                        <strong>Planned:</strong> Endurance – scaled from Endurance Ride – 3.5h<br><span class='small'>3h 30m</span><br><span class='small why-session'>Supports aerobic base and recovery without adding excessive fatigue.</span><br><span class='small'>146–195 W</span>
-                        <div class="badge" style="margin-top:4px;">Endurance</div>
-                    </div>
-                
+            <strong>Saturday</strong>: Rest
         </div>
         
         <div class="week-cell">
             <div class="week-day-label">Sunday</div>
             
                     <div class="week-session-text zone-tempo planned-session">
-                        <strong>Planned:</strong> Tempo – 2h<br><span class='small'>2h</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 95 TSS. Fits within your current time budget at ~2.0h. Leaves room for additional work later in the week.</span><br><span class='small'>198–234 W</span>
+                        <strong>Planned:</strong> Tempo – 2h<br><span class='small'>1h 19m</span><br><span class='small why-session'>Designed to build sustainable power while managing fatigue. Contributes about 95 TSS. Fits within your current time budget at ~1.3h. Leaves room for additional work later in the week.</span><br><span class='small'>198–234 W</span>
                         <div class="badge" style="margin-top:4px;">Tempo</div>
                     </div>
                 
@@ -792,7 +849,28 @@
             ▶ Previous Week
         </div>
         <div class="collapsible-card-content" id="prev-week" style="display:none;">
-            <h2>Previous Week</h2><p>No activities found in the last 7 days.</p>
+            <h2>Previous Week</h2><div class='week-grid'><div class='day-column'><strong>Monday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Tuesday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Wednesday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Thursday</strong><br>
+                <div class="session-card zone-endurance">
+                    <strong>2026-02-05</strong><br>
+                    Zwift - Pacer Group Ride: The Magnificent 8 in Watopia with Coco<br>
+                    0h 22m<br>
+                    [endurance] Contributes about 22 TSS at 186 W. Fits within your current time budget at ~0.4h.
+                </div>
+                
+                <div class="session-card zone-tempo">
+                    <strong>2026-02-05</strong><br>
+                    Zwift - Group Ride:  Hotchillee Gain Train  (B) on The 6 Train in New York<br>
+                    0h 47m<br>
+                    [tempo] Contributes about 47 TSS at 231 W. Fits within your current time budget at ~0.8h.
+                </div>
+                
+                <div class="session-card zone-tempo">
+                    <strong>2026-02-05</strong><br>
+                    Zwift - Watopia<br>
+                    0h 26m<br>
+                    [tempo] Contributes about 26 TSS at 161 W. Fits within your current time budget at ~0.4h.
+                </div>
+                </div><div class='day-column'><strong>Friday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Saturday</strong><br><div class='session-card zone-rest'>Rest</div></div><div class='day-column'><strong>Sunday</strong><br><div class='session-card zone-rest'>Rest</div></div></div><p><strong>Total TSS:</strong> 95<br><strong>Total Duration:</strong> 1h 34m</p><p><strong>Intensity Summary:</strong> Week skewed toward tempo work.</p>
         </div>
 
         <div class="collapsible-card-header" onclick="toggleCard('next-week')">
@@ -831,11 +909,11 @@
         <h2>Adaptive Plan Changes</h2>
         <p>After adapting to your available time and current load:</p>
         <ul>
-            <li>Kept WTRL Race – Zwift on Tuesday (fits time and TSS).</li><li>Kept Zwift GainTrain – Sweet Spot on Thursday (fits time and TSS).</li><li>Kept Tempo – 2h on Sunday (fits time and TSS).</li><li>Replaced Endurance Ride – 3.5h on Saturday with Endurance – scaled from Endurance Ride – 3.5h to fit time/TSS.</li>
+            <li>Kept WTRL Race – Zwift on Tuesday (fits time and TSS).</li><li>Kept Zwift GainTrain – Sweet Spot on Thursday (fits time and TSS).</li><li>Scaled Tempo – 2h on Sunday from 2.0h to 1.3h.</li><li>Dropped Endurance Ride – 3.5h on Saturday (could not fit).</li>
         </ul>
         <p class="small">
-            Remaining time budget: 0.0h<br>
-            Remaining TSS gap: 212 TSS
+            Remaining time budget: 0.1h<br>
+            Remaining TSS gap: 164 TSS
         </p>
     </div>
     
@@ -843,14 +921,14 @@
         
     <div class="card adaptive-load-summary">
         <h2>Adaptive Load Summary</h2>
-        <p><strong>Target TSS:</strong> 390</p><p><strong>Actual TSS:</strong> 0</p><p><strong>Status:</strong> <span class='badge status-bad'>Behind</span></p><p>You're under target — consider adding volume or intensity.</p><p><strong>Planned TSS:</strong> 520<br><strong>Adjusted TSS:</strong> 390<br>High fatigue detected — reducing next week's load.</p><h3>Suggested Sessions to Close Gap (30 TSS remaining)</h3><ul><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li></ul>
+        <p><strong>Target TSS:</strong> 390</p><p><strong>Actual TSS:</strong> 149</p><p><strong>Status:</strong> <span class='badge status-bad'>Behind</span></p><p>You're under target — consider adding volume or intensity.</p><p><strong>Planned TSS:</strong> 520<br><strong>Adjusted TSS:</strong> 390<br>High fatigue detected — reducing next week's load.</p><h3>Suggested Sessions to Close Gap (1 TSS remaining)</h3><ul><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>VO2 Max</strong> — VO2 – Z5 short intervals (90 TSS)</li><li><strong>Endurance Ride</strong> — Endurance – Z2 steady (60 TSS)</li></ul>
     </div>
     
         
     <div class="card">
         <h2>Time Availability</h2>
         <p><strong>Available Hours:</strong> 5h 0m</p>
-        <p><strong>Scheduled:</strong> 7h 30m</p>
+        <p><strong>Scheduled:</strong> 9h 4m</p>
         <p><strong>Remaining:</strong> 0h 0m</p>
 
         <div style="margin-top:10px;">
@@ -871,9 +949,9 @@
         <h2>Recommended Sessions</h2>
         <p><strong>Target TSS: 390</strong></p>
         <p><strong>Available Hours:</strong> 5.0h</p>
-        <p><strong>Scheduled:</strong> 7.5h</p>
+        <p><strong>Scheduled:</strong> 9.07h</p>
         <p><strong>Remaining:</strong> 0h 0m</p>
-        <ul><li><strong>Micro Tempo</strong> — Z3 short intervals (30 TSS)</li><li><strong>VO2 Max</strong> — Z5 intervals to drive fitness (80 TSS)</li></ul><p><strong>Remaining TSS to fill:</strong> 280</p>
+        <ul><li><strong>Micro Tempo</strong> — Z3 short intervals (30 TSS)</li><li><strong>VO2 Max</strong> — Z5 intervals to drive fitness (80 TSS)</li></ul><p><strong>Remaining TSS to fill:</strong> 131</p>
     </div>
     
 
@@ -891,7 +969,7 @@
             target.classList.add('active');
         }
 
-    document.querySelectorAll('.tab-button').forEach(btn => {
+        document.querySelectorAll('.tab-button').forEach(btn => {
             btn.classList.remove('active');
         });
         evt.currentTarget.classList.add('active');
@@ -900,14 +978,76 @@
 
     <script>
     function toggleCard(id) {
-    const content = document.getElementById(id);
-    if (content.style.display === "none") {
-        content.style.display = "block";
-    } else {
-        content.style.display = "none";
-    }
+        const content = document.getElementById(id);
+        if (content.style.display === "none") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
     }
     </script>
+
+<script>
+async function loadWorkoutPreview(workoutId) {
+  const container = document.getElementById("preview-" + workoutId);
+  if (!container) return;
+
+  try {
+    const res = await fetch("generated_workouts/" + workoutId + ".json");
+    if (!res.ok) {
+      container.textContent = "No workout preview available.";
+      return;
+    }
+
+    const data = await res.json();
+
+    const totalMin = Math.round(data.total_duration_sec / 60);
+    const tss = data.estimated_tss;
+    const iff = data.estimated_if;
+
+    let html = `
+      <div class="workout-summary-line">
+        <span>${totalMin} min</span>
+        <span>IF ${iff.toFixed(2)}</span>
+        <span>TSS ${tss.toFixed(0)}</span>
+      </div>
+    `;
+
+    html += `<div class="workout-blocks">`;
+
+    data.blocks.forEach(b => {
+      const durMin = Math.round(b.duration_sec / 60);
+      let powerText = "";
+
+      if (b.power !== undefined) {
+        powerText = `${Math.round(b.power * 100)}%`;
+      } else if (b.power_low !== undefined && b.power_high !== undefined) {
+        powerText = `${Math.round(b.power_low * 100)}–${Math.round(b.power_high * 100)}%`;
+      }
+
+      html += `
+        <div class="workout-block">
+          <div class="block-label">${b.type}</div>
+          <div class="block-meta">${durMin} min · ${powerText}</div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+
+  } catch (e) {
+    container.textContent = "Error loading workout preview.";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".session-card").forEach(card => {
+    const id = card.getAttribute("data-workout-id");
+    if (id) loadWorkoutPreview(id);
+  });
+});
+</script>
 
 </body>
 </html>
