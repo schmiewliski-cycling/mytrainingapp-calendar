@@ -1065,7 +1065,7 @@ async function loadTooltipPreview(workoutId) {
   if (!container) return;
 
   try {
-    const res = await fetch("generated_workouts/" + workoutId + ".json");
+    const res = await fetch("generated_workouts/" + workoutId.replace("_", ".") + ".json");
     if (!res.ok) {
       container.textContent = "No workout preview available.";
       return;
