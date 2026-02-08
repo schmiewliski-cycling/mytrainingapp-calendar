@@ -32,7 +32,7 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
     function saveHoursAndRebuild() {
         const value = document.getElementById("hours_input").value;
         document.getElementById("save_status").innerText = "Saving…";
-        window.location.href = `mytrainingapp://save_and_rebuild?value=${{value}}`;
+        window.location.href = `mytrainingapp://save_and_rebuild?value=${value}`;
         setTimeout(() => { location.reload(); }, 2000);
     }
     </script>
@@ -146,12 +146,12 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
         <div class="container">
 
         <script>
-        function saveHoursAndRebuild() {{
+        function saveHoursAndRebuild() {
             const value = document.getElementById("hours_input").value;
             document.getElementById("save_status").innerText = "Saving…";
-            window.location.href = `mytrainingapp://save_and_rebuild?value=${{value}}`;
+            window.location.href = `mytrainingapp://save_and_rebuild?value=${value}`;
             setTimeout(() => { location.reload(); }, 2000);
-        }}
+        }
         </script>
 
         
