@@ -29,16 +29,16 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
     <link rel="stylesheet" href="static/css/mobile.css">
 
     <script>
-    function saveHoursAndRebuild() {{
+    function saveHoursAndRebuild() {
         const value = document.getElementById("hours_input").value;
         document.getElementById("save_status").innerText = "Saving…";
         window.location.href = `mytrainingapp://save_and_rebuild?value=${{value}}`;
         setTimeout(() => { location.reload(); }, 2000);
-    }}
+    }
     </script>
 
     <script>
-    function openTab(evt, tabId) {{
+    function openTab(evt, tabId) {
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.classList.remove('active');
         });
@@ -48,18 +48,18 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
             btn.classList.remove('active');
         });
         evt.currentTarget.classList.add('active');
-    }}
+    }
     </script>
 
     <script>
-    function toggleCard(id) {{
+    function toggleCard(id) {
         const content = document.getElementById(id);
         content.style.display = (content.style.display === "none") ? "block" : "none";
-    }}
+    }
     </script>
 
     <script>
-    async function loadTooltipPreview(workoutId) {{
+    async function loadTooltipPreview(workoutId) {
       const container = document.getElementById("tooltip-" + workoutId);
       if (!container) return;
 
@@ -123,7 +123,7 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
       } catch (e) {
         container.textContent = "Error loading preview.";
       }
-    }}
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".tooltip-content").forEach(el => {
