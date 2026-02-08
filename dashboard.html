@@ -93,13 +93,13 @@ TRAINING DASHBOARD - FULLY ANNOTATED VERSION
           if (b.power !== undefined) {
             powerText = `${Math.round(b.power * 100)}%`;
           } else if (b.power_low !== undefined && b.power_high !== undefined) {
-            powerText = `${Math.round(b.power_low * 100)}}–${{Math.round(b.power_high * 100)}%`;
+            powerText = `${Math.round(b.power_low * 100)}–${Math.round(b.power_high * 100)}%`;
           }
 
           html += `
             <div class="workout-block">
               <div class="block-label">${b.type}</div>
-              <div class="block-meta">${durMin} min · ${{powerText}}</div>
+              <div class="block-meta">${durMin} min · ${powerText}</div>
             </div>
           `;
         });
