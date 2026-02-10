@@ -1,0 +1,39 @@
+.week-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.week-cell {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    overflow-wrap: break-word;
+}
+
+.week-day-label {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.week-session-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.activity-block {
+    margin-bottom: 12px;
+}
+
+/* Zones */
+.zone-endurance { background-color: var(--zone-endurance); color: #fff; }
+.zone-tempo { background-color: var(--zone-tempo); color: #fff; }
+.zone-sweetspot { background-color: var(--zone-sweetspot); color: #fff; }
+.zone-threshold { background-color: var(--zone-threshold); color: #000; }
+.zone-race { background-color: var(--zone-race); color: #fff; }
+.zone-rest { background-color: var(--zone-rest); color: #ccc; }

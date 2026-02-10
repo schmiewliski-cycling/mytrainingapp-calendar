@@ -1,0 +1,25 @@
+.badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.badge-low { background: var(--good); }
+.badge-moderate { background: var(--warn); }
+.badge-high { background: var(--bad); }
+
+.status-good { background: var(--good); }
+.status-warning { background: var(--warn); }
+.status-bad { background: var(--bad); }
+
+.pw-good { background: var(--good); }
+.pw-too-fresh { background: var(--info); }
+.pw-not-ready { background: var(--warn); }
+.pw-outside { background: #6e7681; }
+
+.ramp-safe { background: var(--good); }
+.ramp-medium { background: var(--warn); }
+.ramp-high { background: var(--bad); }
+.ramp-unknown { background: #6e7681; }
