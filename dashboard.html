@@ -9,6 +9,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta charset="UTF-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Training Dashboard</title>
 
     <!-- ============================
@@ -31,11 +34,25 @@
         <div class="container">
 
     <div id="charts-tab" class="tab-content">
-        <div class="container">
-            <!-- charts will go here later -->
-            <p style="color:#aaa;">Charts coming soon…</p>
+        <div class="container charts-container">
+
+            <h2>Training Charts</h2>
+
+            <h3>CTL / ATL / TSB</h3>
+            <canvas id="ctlChart"></canvas>
+
+            <h3>Power Duration Curve</h3>
+            <canvas id="pdcChart"></canvas>
+
+            <h3>Power Radar</h3>
+            <canvas id="radarChart"></canvas>
+
+            <h3>Weekly TSS</h3>
+            <canvas id="tssChart"></canvas>
+
         </div>
     </div>
+
 
         <script>
         function saveHoursAndRebuild() {{
@@ -605,24 +622,15 @@
         <div class="best-match-label">Best match for today</div>
 
         <div class="event-header">
-            <span class="event-name">Stage 1: Zwift Games: Kaze Kicker</span>
+            <span class="event-name">HCC Wellness Ride p/b Pinarello</span>
             <span class="event-type-badge event-type-ride">Ride</span>
-            <span class='event-badge starts-in'>⏱️ Starts in Starts in 4 min</span>
+            <span class='event-badge starts-in'>⏱️ Starts in Starts in 6 min</span>
         </div>
 
         <div class="event-meta">
-            <div class="meta-line">Mon 14:10 · Starts in 4 min</div>
-            <div class="meta-line">3 signed up
- 
-5 signed up
- 
-9 signed up
- 
-9 signed up
- 
-11 signed up
-0-725</div>
-            <div class="meta-line">📏 short km</div>
+            <div class="meta-line">Mon 14:30 · Starts in 6 min</div>
+            <div class="meta-line">28 signed up</div>
+            <div class="meta-line">📏  km</div>
             <span class="event-difficulty diff-easy">Easy</span>
             <div class="why-match">This event aligns well with today's planned training session.</div>
         </div>
@@ -631,11 +639,11 @@
             <div class="intensity-fill" style="width:0%"></div>
         </div>
 
-        <div class="event-route">🌍 Unknown — M
-Kaze Kicker</div>
+        <div class="event-route">🌍 Unknown — F
+Three Musketeers</div>
 
         
-        <a href="https://www.zwift.com/events/view/5429289"
+        <a href="https://www.zwift.com/events/view/5435404"
            class="join-button" target="_blank">Join Now</a>
         
     </div>
@@ -649,17 +657,17 @@ Kaze Kicker</div>
       </div>
 
       <div id="zwift-races" class="zwift-tab-content active">
-        <div class="event-card ">
+        <div class="event-card starts-soon">
             
             <div class="event-header">
                 <span class="event-name">Zwift Crit Racing Club - Castle Crit</span>
                 
                 <span class="event-type-badge event-type-race">Race</span>
-                
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 16 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:40 · Starts in 34 min</div>
+                <div class="meta-line">Mon 14:40 · Starts in 16 min</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -690,17 +698,17 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
                class="join-button" target="_blank">Join Now</a>
             
         </div>
-<div class="event-card ">
+<div class="event-card starts-soon">
             
             <div class="event-header">
                 <span class="event-name">EVO CC Race Series</span>
                 
                 <span class="event-type-badge event-type-race">Race</span>
-                
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 21 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:45 · Starts in 39 min</div>
+                <div class="meta-line">Mon 14:45 · Starts in 21 min</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -741,7 +749,7 @@ Watts the Limit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:15 · Starts in 1h 9m</div>
+                <div class="meta-line">Mon 15:15 · Starts in 51 min</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-moderate">Moderate</span>
@@ -773,7 +781,7 @@ Handful Of Gravel <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:30 · Starts in 1h 24m</div>
+                <div class="meta-line">Mon 15:30 · Starts in 1h 6m</div>
                 <div class="meta-line">👥 2 signed up
  
 7 signed up
@@ -811,7 +819,7 @@ Sand And Sequoias <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:00 · Starts in 1h 54m</div>
+                <div class="meta-line">Mon 16:00 · Starts in 1h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 6 signed up
@@ -849,7 +857,7 @@ Volcano Climb <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:30 · Starts in 2h 24m</div>
+                <div class="meta-line">Mon 16:30 · Starts in 2h 6m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -890,7 +898,7 @@ Watts the Limit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:51 · Starts in 2h 45m</div>
+                <div class="meta-line">Mon 16:51 · Starts in 2h 27m</div>
                 <div class="meta-line">👥 2 signed up
  
 1 signed up
@@ -931,7 +939,7 @@ Greater London 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:06 · Starts in 3h 0m</div>
+                <div class="meta-line">Mon 17:06 · Starts in 2h 42m</div>
                 <div class="meta-line">👥 2 signed up
  
 1 signed up
@@ -972,7 +980,7 @@ Roule Ma Poule <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:21 · Starts in 3h 15m</div>
+                <div class="meta-line">Mon 17:21 · Starts in 2h 57m</div>
                 <div class="meta-line">👥 1 signed up
  
 1 signed up
@@ -1013,7 +1021,7 @@ Beach Island Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 4 signed up
  
 3 signed up
@@ -1054,7 +1062,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -1095,7 +1103,7 @@ Jarvis Seaside Sprint <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:40 · Starts in 3h 34m</div>
+                <div class="meta-line">Mon 17:40 · Starts in 3h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1136,7 +1144,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:55 · Starts in 3h 49m</div>
+                <div class="meta-line">Mon 17:55 · Starts in 3h 31m</div>
                 <div class="meta-line">👥 4 signed up
  
 1 signed up
@@ -1177,7 +1185,7 @@ Climb Control <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 2 signed up
@@ -1215,7 +1223,7 @@ Jungle Circuit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 2 signed up
  
 2 signed up
@@ -1253,7 +1261,7 @@ Royal Pump Room 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:15 · Starts in 4h 9m</div>
+                <div class="meta-line">Mon 18:15 · Starts in 3h 51m</div>
                 <div class="meta-line">👥 3 signed up
  
 0 signed up
@@ -1294,7 +1302,7 @@ Outer Scotland <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:15 · Starts in 4h 9m</div>
+                <div class="meta-line">Mon 18:15 · Starts in 3h 51m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1332,7 +1340,7 @@ Seaside Sprint <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:30 · Starts in 4h 24m</div>
+                <div class="meta-line">Mon 18:30 · Starts in 4h 6m</div>
                 <div class="meta-line">👥 4 signed up
  
 3 signed up
@@ -1373,7 +1381,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:35 · Starts in 4h 29m</div>
+                <div class="meta-line">Mon 18:35 · Starts in 4h 11m</div>
                 <div class="meta-line">👥 4 signed up
  
 1 signed up</div>
@@ -1409,7 +1417,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:40 · Starts in 4h 34m</div>
+                <div class="meta-line">Mon 18:40 · Starts in 4h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1450,7 +1458,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:50 · Starts in 4h 44m</div>
+                <div class="meta-line">Mon 18:50 · Starts in 4h 26m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-moderate">Moderate</span>
@@ -1482,7 +1490,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:55 · Starts in 4h 49m</div>
+                <div class="meta-line">Mon 18:55 · Starts in 4h 31m</div>
                 <div class="meta-line">👥 1 signed up
  
 1 signed up
@@ -1523,7 +1531,7 @@ Watts the Limit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 2 signed up
@@ -1564,7 +1572,7 @@ R.G.V. <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:30 · Starts in 5h 24m</div>
+                <div class="meta-line">Mon 19:30 · Starts in 5h 6m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -1605,7 +1613,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:30 · Starts in 5h 24m</div>
+                <div class="meta-line">Mon 19:30 · Starts in 5h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1646,7 +1654,7 @@ Climb Control <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:30 · Starts in 5h 24m</div>
+                <div class="meta-line">Mon 19:30 · Starts in 5h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1687,7 +1695,7 @@ Scotland After Party <span class="route-diff route-Climbing">Climbing</span></di
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:40 · Starts in 5h 34m</div>
+                <div class="meta-line">Mon 19:40 · Starts in 5h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -1728,7 +1736,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:10 · Starts in 6h 4m</div>
+                <div class="meta-line">Mon 20:10 · Starts in 5h 46m</div>
                 <div class="meta-line">👥 5 signed up
  
 8 signed up
@@ -1769,7 +1777,7 @@ Outer Scotland <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:00 · Starts in 8h 54m</div>
+                <div class="meta-line">Mon 23:00 · Starts in 8h 36m</div>
                 <div class="meta-line">👥 18 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-moderate">Moderate</span>
@@ -1801,7 +1809,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:15 · Starts in 9h 9m</div>
+                <div class="meta-line">Mon 23:15 · Starts in 8h 51m</div>
                 <div class="meta-line">👥 5 signed up
  
 16 signed up
@@ -1842,7 +1850,7 @@ Outer Scotland <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:40 · Starts in 9h 34m</div>
+                <div class="meta-line">Mon 23:40 · Starts in 9h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -1883,7 +1891,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:15 · Starts in 10h 9m</div>
+                <div class="meta-line">Tue 00:15 · Starts in 9h 51m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -1921,7 +1929,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -1962,7 +1970,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -2000,7 +2008,7 @@ Prospect Park Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:40 · Starts in 12h 34m</div>
+                <div class="meta-line">Tue 02:40 · Starts in 12h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -2041,7 +2049,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:40 · Starts in 18h 34m</div>
+                <div class="meta-line">Tue 08:40 · Starts in 18h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -2082,7 +2090,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:05 · Starts in 18h 59m</div>
+                <div class="meta-line">Tue 09:05 · Starts in 18h 41m</div>
                 <div class="meta-line">👥 8 signed up
  
 6 signed up
@@ -2120,7 +2128,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:00 · Starts in 19h 54m</div>
+                <div class="meta-line">Tue 10:00 · Starts in 19h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -2161,7 +2169,7 @@ Glasgow Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:40 · Starts in 20h 34m</div>
+                <div class="meta-line">Tue 10:40 · Starts in 20h 16m</div>
                 <div class="meta-line">👥 2 signed up
  
 0 signed up
@@ -2202,7 +2210,7 @@ Castle Crit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -2243,7 +2251,7 @@ Glasgow Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 3 signed up
  
 0 signed up
@@ -2284,7 +2292,7 @@ Neokyo All-Nighter <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:40 · Starts in 22h 34m</div>
+                <div class="meta-line">Tue 12:40 · Starts in 22h 16m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -4459,7 +4467,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4491,7 +4499,7 @@ The Fan Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4523,7 +4531,7 @@ Countryside Tour <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥 12 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4555,7 +4563,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 15 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4587,7 +4595,7 @@ The Magnificent 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:45 · Starts in 3h 39m</div>
+                <div class="meta-line">Mon 17:45 · Starts in 3h 21m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4619,7 +4627,7 @@ Big Flat 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4651,7 +4659,7 @@ Glasgow Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 21:30 · Starts in 7h 24m</div>
+                <div class="meta-line">Mon 21:30 · Starts in 7h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4683,7 +4691,7 @@ Greater London Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:30 · Starts in 9h 24m</div>
+                <div class="meta-line">Mon 23:30 · Starts in 9h 6m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4715,7 +4723,7 @@ Electric Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 04:00 · Starts in 13h 54m</div>
+                <div class="meta-line">Tue 04:00 · Starts in 13h 36m</div>
                 <div class="meta-line">👥 9 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4747,7 +4755,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:30 · Starts in 16h 24m</div>
+                <div class="meta-line">Tue 06:30 · Starts in 16h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4779,7 +4787,7 @@ Italian Villas Circuit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:45 · Starts in 16h 39m</div>
+                <div class="meta-line">Tue 06:45 · Starts in 16h 21m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4811,7 +4819,7 @@ Countryside Tour <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:00 · Starts in 18h 54m</div>
+                <div class="meta-line">Tue 09:00 · Starts in 18h 36m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4843,7 +4851,7 @@ Innsbruckring <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:00 · Starts in 18h 54m</div>
+                <div class="meta-line">Tue 09:00 · Starts in 18h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4875,7 +4883,7 @@ May Field <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:00 · Starts in 18h 54m</div>
+                <div class="meta-line">Tue 09:00 · Starts in 18h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4907,7 +4915,7 @@ The Muckle Yin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:00 · Starts in 19h 54m</div>
+                <div class="meta-line">Tue 10:00 · Starts in 19h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4939,7 +4947,7 @@ Innsbruckring <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥👥 38 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -4971,7 +4979,7 @@ Lady Liberty <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5003,7 +5011,7 @@ Coast to Coast <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5035,7 +5043,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5067,7 +5075,7 @@ Innsbruckring <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:30 · Starts in 23h 24m</div>
+                <div class="meta-line">Tue 13:30 · Starts in 23h 6m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5099,7 +5107,7 @@ Astoria Line 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:45 · Starts in 23h 39m</div>
+                <div class="meta-line">Tue 13:45 · Starts in 23h 21m</div>
                 <div class="meta-line">👥 11 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5131,7 +5139,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -5163,7 +5171,7 @@ Neon Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6386,125 +6394,14 @@ Fine and Sandy <span class="route-diff route-Flat">Flat</span></div>
         <div class="event-card starts-soon">
             <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
             <div class="event-header">
-                <span class="event-name">Stage 1: Zwift Games: Kaze Kicker</span>
-                
-                <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 4 min</span>
-            </div>
-
-            <div class="event-meta">
-                <div class="meta-line">Mon 14:10 · Starts in 4 min</div>
-                <div class="meta-line">👥 3 signed up
- 
-5 signed up
- 
-9 signed up
- 
-9 signed up
- 
-11 signed up
-0-725</div>
-                <div class="meta-line">📏 short km</div>
-                <span class="event-difficulty diff-easy">Easy</span>
-                <div class="meta-line">🔥 IF: 0.8</div>
-                <div class="meta-line">📈 CTL +1.5</div>
-                <div class="meta-line">📉 ATL +9.1</div>
-                <span class="tss-badge tss-moderate">64 TSS</span>
-            </div>
-
-            <div class="intensity-bar">
-                <div class="intensity-fill" style="width:0%"></div>
-            </div>
-
-            <div class="event-route">🌍 Unknown — M
-Kaze Kicker <span class="route-diff route-Flat">Flat</span></div>
-
-            
-            <a href="https://www.zwift.com/events/view/5429289"
-               class="join-button" target="_blank">Join Now</a>
-            
-        </div>
-<div class="event-card starts-soon">
-            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
-            <div class="event-header">
-                <span class="event-name">T-VGN 🌱 Vitamin K Rubberband</span>
-                
-                <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 9 min</span>
-            </div>
-
-            <div class="event-meta">
-                <div class="meta-line">Mon 14:15 · Starts in 9 min</div>
-                <div class="meta-line">👥 5 signed up</div>
-                <div class="meta-line">📏 Distance: N/A</div>
-                <span class="event-difficulty diff-easy">Easy</span>
-                <div class="meta-line">🔥 IF: 0.8</div>
-                <div class="meta-line">📈 CTL +1.1</div>
-                <div class="meta-line">📉 ATL +6.9</div>
-                <span class="tss-badge tss-moderate">48 TSS</span>
-            </div>
-
-            <div class="intensity-bar">
-                <div class="intensity-fill" style="width:0%"></div>
-            </div>
-
-            <div class="event-route">🌍 Unknown — W
-Going Coastal <span class="route-diff route-Flat">Flat</span></div>
-
-            
-            <a href="https://www.zwift.com/events/view/5452359"
-               class="join-button" target="_blank">Join Now</a>
-            
-        </div>
-<div class="event-card starts-soon">
-            
-            <div class="event-header">
-                <span class="event-name">Zwift TT Club Racing - Bon Voyage</span>
-                
-                <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 14 min</span>
-            </div>
-
-            <div class="event-meta">
-                <div class="meta-line">Mon 14:20 · Starts in 14 min</div>
-                <div class="meta-line">👥 2 signed up
- 
-2 signed up
- 
-1 signed up
- 
-0 signed up</div>
-                <div class="meta-line">📏 short km</div>
-                <span class="event-difficulty diff-easy">Easy</span>
-                <div class="meta-line">🔥 IF: 0.8</div>
-                <div class="meta-line">📈 CTL +1.5</div>
-                <div class="meta-line">📉 ATL +9.1</div>
-                <span class="tss-badge tss-moderate">64 TSS</span>
-            </div>
-
-            <div class="intensity-bar">
-                <div class="intensity-fill" style="width:0%"></div>
-            </div>
-
-            <div class="event-route">🌍 Unknown — F
-Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
-
-            
-            <a href="https://www.zwift.com/events/view/5393477"
-               class="join-button" target="_blank">Join Now</a>
-            
-        </div>
-<div class="event-card starts-soon">
-            
-            <div class="event-header">
                 <span class="event-name">HCC Wellness Ride p/b Pinarello</span>
                 <span class="cat-badge cat-B">B</span>
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 24 min</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 6 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:30 · Starts in 24 min</div>
+                <div class="meta-line">Mon 14:30 · Starts in 6 min</div>
                 <div class="meta-line">👥👥 28 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6527,16 +6424,16 @@ Three Musketeers <span class="route-diff route-Flat">Flat</span></div>
             
         </div>
 <div class="event-card starts-soon">
-            
+            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
             <div class="event-header">
                 <span class="event-name">EZR Easy Riding with EZ</span>
                 
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 24 min</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 6 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:30 · Starts in 24 min</div>
+                <div class="meta-line">Mon 14:30 · Starts in 6 min</div>
                 <div class="meta-line">👥👥 23 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6568,7 +6465,7 @@ London 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:55 · Starts in 49 min</div>
+                <div class="meta-line">Mon 14:55 · Starts in 31 min</div>
                 <div class="meta-line">👥👥👥 61 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6600,7 +6497,7 @@ Flatland Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:05 · Starts in 59 min</div>
+                <div class="meta-line">Mon 15:05 · Starts in 41 min</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -6641,7 +6538,7 @@ Ocean Lava Cliffside Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:10 · Starts in 1h 4m</div>
+                <div class="meta-line">Mon 15:10 · Starts in 46 min</div>
                 <div class="meta-line">👥 12 signed up
  
 9 signed up
@@ -6682,7 +6579,7 @@ Kaze Kicker <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:15 · Starts in 1h 9m</div>
+                <div class="meta-line">Mon 15:15 · Starts in 51 min</div>
                 <div class="meta-line">👥 8 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -6715,7 +6612,7 @@ Kaze Kicker <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:30 · Starts in 1h 24m</div>
+                <div class="meta-line">Mon 15:30 · Starts in 1h 6m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6747,7 +6644,7 @@ Tropic Rush <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 15:30 · Starts in 1h 24m</div>
+                <div class="meta-line">Mon 15:30 · Starts in 1h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -6785,7 +6682,7 @@ Astoria Line 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:05 · Starts in 1h 59m</div>
+                <div class="meta-line">Mon 16:05 · Starts in 1h 41m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6817,7 +6714,7 @@ Empire Elevation <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:05 · Starts in 1h 59m</div>
+                <div class="meta-line">Mon 16:05 · Starts in 1h 41m</div>
                 <div class="meta-line">👥 12 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6849,7 +6746,7 @@ Tair Dringfa Fechan <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:10 · Starts in 2h 4m</div>
+                <div class="meta-line">Mon 16:10 · Starts in 1h 46m</div>
                 <div class="meta-line">👥 39 signed up
  
 63 signed up
@@ -6890,7 +6787,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:15 · Starts in 2h 9m</div>
+                <div class="meta-line">Mon 16:15 · Starts in 1h 51m</div>
                 <div class="meta-line">👥 132 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -6923,7 +6820,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:30 · Starts in 2h 24m</div>
+                <div class="meta-line">Mon 16:30 · Starts in 2h 6m</div>
                 <div class="meta-line">👥👥👥 84 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6955,7 +6852,7 @@ The Big Ring <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:45 · Starts in 2h 39m</div>
+                <div class="meta-line">Mon 16:45 · Starts in 2h 21m</div>
                 <div class="meta-line">👥 16 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -6987,7 +6884,7 @@ Libby Hill After Party <span class="route-diff route-Climbing">Climbing</span></
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:45 · Starts in 2h 39m</div>
+                <div class="meta-line">Mon 16:45 · Starts in 2h 21m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7019,7 +6916,7 @@ Spinfinity Ultra <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 16:45 · Starts in 2h 39m</div>
+                <div class="meta-line">Mon 16:45 · Starts in 2h 21m</div>
                 <div class="meta-line">👥👥 25 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7051,7 +6948,7 @@ London Calling <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -7092,7 +6989,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥👥 34 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7124,7 +7021,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥👥 23 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7156,7 +7053,7 @@ Greater London Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥 6 signed up
  
 36 signed up</div>
@@ -7192,7 +7089,7 @@ Big Flat 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:00 · Starts in 2h 54m</div>
+                <div class="meta-line">Mon 17:00 · Starts in 2h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -7232,7 +7129,7 @@ Jungle Circuit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:05 · Starts in 2h 59m</div>
+                <div class="meta-line">Mon 17:05 · Starts in 2h 41m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7264,7 +7161,7 @@ City and the Sgurr <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:05 · Starts in 2h 59m</div>
+                <div class="meta-line">Mon 17:05 · Starts in 2h 41m</div>
                 <div class="meta-line">👥👥 22 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7296,7 +7193,7 @@ Volcano Climb After Party <span class="route-diff route-Climbing">Climbing</span
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:10 · Starts in 3h 4m</div>
+                <div class="meta-line">Mon 17:10 · Starts in 2h 46m</div>
                 <div class="meta-line">👥 57 signed up
  
 80 signed up
@@ -7337,7 +7234,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:10 · Starts in 3h 4m</div>
+                <div class="meta-line">Mon 17:10 · Starts in 2h 46m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -7375,7 +7272,7 @@ Park Perimeter Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥 50 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -7408,7 +7305,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥 10 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7440,7 +7337,7 @@ Coast Crusher <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥 18 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7472,7 +7369,7 @@ Big Foot Hills <span class="route-diff route-Rolling">Rolling</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:15 · Starts in 3h 9m</div>
+                <div class="meta-line">Mon 17:15 · Starts in 2h 51m</div>
                 <div class="meta-line">👥👥 37 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7504,7 +7401,7 @@ The Muckle Yin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:20 · Starts in 3h 14m</div>
+                <div class="meta-line">Mon 17:20 · Starts in 2h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -7542,7 +7439,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:20 · Starts in 3h 14m</div>
+                <div class="meta-line">Mon 17:20 · Starts in 2h 56m</div>
                 <div class="meta-line">👥 9 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7574,7 +7471,7 @@ Power Punches <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:25 · Starts in 3h 19m</div>
+                <div class="meta-line">Mon 17:25 · Starts in 3h 1m</div>
                 <div class="meta-line">👥👥 30 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7606,7 +7503,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 9 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7638,7 +7535,7 @@ Hot Laps <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 4 signed up
  
 5 signed up</div>
@@ -7672,7 +7569,7 @@ Sugar Cookie <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7704,7 +7601,7 @@ Electric Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7736,7 +7633,7 @@ Glasgow Crit Six <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:30 · Starts in 3h 24m</div>
+                <div class="meta-line">Mon 17:30 · Starts in 3h 6m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7768,7 +7665,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:35 · Starts in 3h 29m</div>
+                <div class="meta-line">Mon 17:35 · Starts in 3h 11m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7800,7 +7697,7 @@ The Fan Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:45 · Starts in 3h 39m</div>
+                <div class="meta-line">Mon 17:45 · Starts in 3h 21m</div>
                 <div class="meta-line">👥👥 20 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7832,7 +7729,7 @@ Cobbled Crown <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:45 · Starts in 3h 39m</div>
+                <div class="meta-line">Mon 17:45 · Starts in 3h 21m</div>
                 <div class="meta-line">👥👥 42 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7864,7 +7761,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:50 · Starts in 3h 44m</div>
+                <div class="meta-line">Mon 17:50 · Starts in 3h 26m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7896,7 +7793,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 17:55 · Starts in 3h 49m</div>
+                <div class="meta-line">Mon 17:55 · Starts in 3h 31m</div>
                 <div class="meta-line">👥 17 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -7928,7 +7825,7 @@ Sand And Sequoias <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 1 signed up
@@ -7969,7 +7866,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 12 signed up
  
 14 signed up
@@ -8009,7 +7906,7 @@ Sleepless City <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 2 signed up
@@ -8047,7 +7944,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:00 · Starts in 3h 54m</div>
+                <div class="meta-line">Mon 18:00 · Starts in 3h 36m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8079,7 +7976,7 @@ Greatest London Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:05 · Starts in 3h 59m</div>
+                <div class="meta-line">Mon 18:05 · Starts in 3h 41m</div>
                 <div class="meta-line">👥👥 34 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8111,7 +8008,7 @@ R.G.V. <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:05 · Starts in 3h 59m</div>
+                <div class="meta-line">Mon 18:05 · Starts in 3h 41m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8143,7 +8040,7 @@ R.G.V. <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:10 · Starts in 4h 4m</div>
+                <div class="meta-line">Mon 18:10 · Starts in 3h 46m</div>
                 <div class="meta-line">👥 39 signed up
  
 36 signed up
@@ -8184,7 +8081,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:10 · Starts in 4h 4m</div>
+                <div class="meta-line">Mon 18:10 · Starts in 3h 46m</div>
                 <div class="meta-line">👥 15 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8216,7 +8113,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:10 · Starts in 4h 4m</div>
+                <div class="meta-line">Mon 18:10 · Starts in 3h 46m</div>
                 <div class="meta-line">👥👥 22 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8248,7 +8145,7 @@ Jurassic Coast <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:15 · Starts in 4h 9m</div>
+                <div class="meta-line">Mon 18:15 · Starts in 3h 51m</div>
                 <div class="meta-line">👥 23 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -8281,7 +8178,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:15 · Starts in 4h 9m</div>
+                <div class="meta-line">Mon 18:15 · Starts in 3h 51m</div>
                 <div class="meta-line">👥👥 29 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8313,7 +8210,7 @@ The Double Borough <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:15 · Starts in 4h 9m</div>
+                <div class="meta-line">Mon 18:15 · Starts in 3h 51m</div>
                 <div class="meta-line">👥 18 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8345,7 +8242,7 @@ Times Square Circuit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:20 · Starts in 4h 14m</div>
+                <div class="meta-line">Mon 18:20 · Starts in 3h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -8383,7 +8280,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:20 · Starts in 4h 14m</div>
+                <div class="meta-line">Mon 18:20 · Starts in 3h 56m</div>
                 <div class="meta-line">👥 13 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8415,7 +8312,7 @@ Turf N Surf <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:25 · Starts in 4h 19m</div>
+                <div class="meta-line">Mon 18:25 · Starts in 4h 1m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8447,7 +8344,7 @@ Watopia's Waistband <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:25 · Starts in 4h 19m</div>
+                <div class="meta-line">Mon 18:25 · Starts in 4h 1m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8479,7 +8376,7 @@ Big Flat 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:30 · Starts in 4h 24m</div>
+                <div class="meta-line">Mon 18:30 · Starts in 4h 6m</div>
                 <div class="meta-line">👥 12 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8511,7 +8408,7 @@ Neokyo Crit Course <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:30 · Starts in 4h 24m</div>
+                <div class="meta-line">Mon 18:30 · Starts in 4h 6m</div>
                 <div class="meta-line">👥 1 signed up
  
 3 signed up
@@ -8552,7 +8449,7 @@ Downtown Dolphin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:30 · Starts in 4h 24m</div>
+                <div class="meta-line">Mon 18:30 · Starts in 4h 6m</div>
                 <div class="meta-line">👥👥 29 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8584,7 +8481,7 @@ Coast Crusher <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:30 · Starts in 4h 25m</div>
+                <div class="meta-line">Mon 18:30 · Starts in 4h 7m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8616,7 +8513,7 @@ Knights of the Roundabout <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:35 · Starts in 4h 29m</div>
+                <div class="meta-line">Mon 18:35 · Starts in 4h 11m</div>
                 <div class="meta-line">👥👥 20 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8648,7 +8545,7 @@ Outer Scotland <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:35 · Starts in 4h 29m</div>
+                <div class="meta-line">Mon 18:35 · Starts in 4h 11m</div>
                 <div class="meta-line">👥👥👥 103 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8680,7 +8577,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:40 · Starts in 4h 34m</div>
+                <div class="meta-line">Mon 18:40 · Starts in 4h 16m</div>
                 <div class="meta-line">👥 7 signed up
  
 20 signed up</div>
@@ -8714,7 +8611,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:45 · Starts in 4h 39m</div>
+                <div class="meta-line">Mon 18:45 · Starts in 4h 21m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8746,7 +8643,7 @@ Beach Island Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:45 · Starts in 4h 39m</div>
+                <div class="meta-line">Mon 18:45 · Starts in 4h 21m</div>
                 <div class="meta-line">👥 18 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8778,7 +8675,7 @@ Coast Crusher <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:45 · Starts in 4h 39m</div>
+                <div class="meta-line">Mon 18:45 · Starts in 4h 21m</div>
                 <div class="meta-line">👥 11 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8810,7 +8707,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:45 · Starts in 4h 39m</div>
+                <div class="meta-line">Mon 18:45 · Starts in 4h 21m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8842,7 +8739,7 @@ Wandering Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:50 · Starts in 4h 44m</div>
+                <div class="meta-line">Mon 18:50 · Starts in 4h 26m</div>
                 <div class="meta-line">👥👥 29 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8874,7 +8771,7 @@ Southern Coast Cruise <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 18:55 · Starts in 4h 49m</div>
+                <div class="meta-line">Mon 18:55 · Starts in 4h 31m</div>
                 <div class="meta-line">👥 11 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8906,7 +8803,7 @@ Croissant <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 20 signed up
  
 11 signed up
@@ -8946,7 +8843,7 @@ Rolling Highlands <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -8978,7 +8875,7 @@ Farmland Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9010,7 +8907,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9042,7 +8939,7 @@ Southern Coast Cruise <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:00 · Starts in 4h 54m</div>
+                <div class="meta-line">Mon 19:00 · Starts in 4h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9074,7 +8971,7 @@ No Sleep Till Brooklyn <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:05 · Starts in 4h 59m</div>
+                <div class="meta-line">Mon 19:05 · Starts in 4h 41m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9106,7 +9003,7 @@ Sleepless City <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:10 · Starts in 5h 4m</div>
+                <div class="meta-line">Mon 19:10 · Starts in 4h 46m</div>
                 <div class="meta-line">👥 12 signed up
  
 30 signed up
@@ -9147,7 +9044,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:10 · Starts in 5h 4m</div>
+                <div class="meta-line">Mon 19:10 · Starts in 4h 46m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9179,7 +9076,7 @@ Turf N Surf <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:10 · Starts in 5h 4m</div>
+                <div class="meta-line">Mon 19:10 · Starts in 4h 46m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9211,7 +9108,7 @@ Itza Party <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:15 · Starts in 5h 9m</div>
+                <div class="meta-line">Mon 19:15 · Starts in 4h 51m</div>
                 <div class="meta-line">👥 7 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -9244,7 +9141,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:15 · Starts in 5h 9m</div>
+                <div class="meta-line">Mon 19:15 · Starts in 4h 51m</div>
                 <div class="meta-line">👥 7 signed up
  
 0 signed up</div>
@@ -9278,7 +9175,7 @@ Seaside Sprint <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:15 · Starts in 5h 9m</div>
+                <div class="meta-line">Mon 19:15 · Starts in 4h 51m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9310,7 +9207,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:15 · Starts in 5h 9m</div>
+                <div class="meta-line">Mon 19:15 · Starts in 4h 51m</div>
                 <div class="meta-line">👥👥 22 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9342,7 +9239,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:20 · Starts in 5h 14m</div>
+                <div class="meta-line">Mon 19:20 · Starts in 4h 56m</div>
                 <div class="meta-line">👥 1 signed up
  
 3 signed up
@@ -9380,7 +9277,7 @@ Island Outskirts <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:20 · Starts in 5h 14m</div>
+                <div class="meta-line">Mon 19:20 · Starts in 4h 56m</div>
                 <div class="meta-line">👥 1 signed up
  
 9 signed up
@@ -9418,7 +9315,7 @@ Island Outskirts <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:20 · Starts in 5h 14m</div>
+                <div class="meta-line">Mon 19:20 · Starts in 4h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -9456,7 +9353,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:25 · Starts in 5h 19m</div>
+                <div class="meta-line">Mon 19:25 · Starts in 5h 1m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9488,7 +9385,7 @@ Double Span Spin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:30 · Starts in 5h 24m</div>
+                <div class="meta-line">Mon 19:30 · Starts in 5h 6m</div>
                 <div class="meta-line">👥 16 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9520,7 +9417,7 @@ Climb Control <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:30 · Starts in 5h 24m</div>
+                <div class="meta-line">Mon 19:30 · Starts in 5h 6m</div>
                 <div class="meta-line">👥 15 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9552,7 +9449,7 @@ Watts of the Wild <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:35 · Starts in 5h 29m</div>
+                <div class="meta-line">Mon 19:35 · Starts in 5h 11m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9584,7 +9481,7 @@ Double Span Spin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:40 · Starts in 5h 34m</div>
+                <div class="meta-line">Mon 19:40 · Starts in 5h 16m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9616,7 +9513,7 @@ Fine and Sandy <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 19:45 · Starts in 5h 39m</div>
+                <div class="meta-line">Mon 19:45 · Starts in 5h 21m</div>
                 <div class="meta-line">👥 3 signed up
  
 1 signed up
@@ -9654,7 +9551,7 @@ Ocean Lava Cliffside Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:00 · Starts in 5h 54m</div>
+                <div class="meta-line">Mon 20:00 · Starts in 5h 36m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9686,7 +9583,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:10 · Starts in 6h 4m</div>
+                <div class="meta-line">Mon 20:10 · Starts in 5h 46m</div>
                 <div class="meta-line">👥 15 signed up
  
 15 signed up
@@ -9727,7 +9624,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:15 · Starts in 6h 9m</div>
+                <div class="meta-line">Mon 20:15 · Starts in 5h 51m</div>
                 <div class="meta-line">👥 6 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -9760,7 +9657,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:15 · Starts in 6h 9m</div>
+                <div class="meta-line">Mon 20:15 · Starts in 5h 51m</div>
                 <div class="meta-line">👥 11 signed up
  
 12 signed up</div>
@@ -9796,7 +9693,7 @@ Three Musketeers <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:15 · Starts in 6h 9m</div>
+                <div class="meta-line">Mon 20:15 · Starts in 5h 51m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9828,7 +9725,7 @@ The Fan Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:20 · Starts in 6h 14m</div>
+                <div class="meta-line">Mon 20:20 · Starts in 5h 56m</div>
                 <div class="meta-line">👥 1 signed up
  
 1 signed up
@@ -9866,7 +9763,7 @@ Sea to Tree <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 20:30 · Starts in 6h 24m</div>
+                <div class="meta-line">Mon 20:30 · Starts in 6h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9898,7 +9795,7 @@ Champs-Élysées <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 21:10 · Starts in 7h 4m</div>
+                <div class="meta-line">Mon 21:10 · Starts in 6h 46m</div>
                 <div class="meta-line">👥 3 signed up
  
 1 signed up
@@ -9939,7 +9836,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 21:20 · Starts in 7h 14m</div>
+                <div class="meta-line">Mon 21:20 · Starts in 6h 56m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -9971,7 +9868,7 @@ Greatest London Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 21:30 · Starts in 7h 24m</div>
+                <div class="meta-line">Mon 21:30 · Starts in 7h 6m</div>
                 <div class="meta-line">👥 10 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10003,7 +9900,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 21:35 · Starts in 7h 29m</div>
+                <div class="meta-line">Mon 21:35 · Starts in 7h 11m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10035,7 +9932,7 @@ Downtown Titans <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:00 · Starts in 7h 54m</div>
+                <div class="meta-line">Mon 22:00 · Starts in 7h 36m</div>
                 <div class="meta-line">👥 2 signed up
  
 1 signed up</div>
@@ -10069,7 +9966,7 @@ Bologna Time Trial <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:05 · Starts in 7h 59m</div>
+                <div class="meta-line">Mon 22:05 · Starts in 7h 41m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -10110,7 +10007,7 @@ Coast Crusher <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:10 · Starts in 8h 4m</div>
+                <div class="meta-line">Mon 22:10 · Starts in 7h 46m</div>
                 <div class="meta-line">👥 7 signed up
  
 7 signed up
@@ -10151,7 +10048,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:15 · Starts in 8h 9m</div>
+                <div class="meta-line">Mon 22:15 · Starts in 7h 51m</div>
                 <div class="meta-line">👥 3 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -10184,7 +10081,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:15 · Starts in 8h 9m</div>
+                <div class="meta-line">Mon 22:15 · Starts in 7h 51m</div>
                 <div class="meta-line">👥 13 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10216,7 +10113,7 @@ Country to Coastal <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:15 · Starts in 8h 9m</div>
+                <div class="meta-line">Mon 22:15 · Starts in 7h 51m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10248,7 +10145,7 @@ No Sleep Till Brooklyn <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:30 · Starts in 8h 24m</div>
+                <div class="meta-line">Mon 22:30 · Starts in 8h 6m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10280,7 +10177,7 @@ Road To Ruins Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 22:35 · Starts in 8h 29m</div>
+                <div class="meta-line">Mon 22:35 · Starts in 8h 11m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -10318,7 +10215,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:10 · Starts in 9h 4m</div>
+                <div class="meta-line">Mon 23:10 · Starts in 8h 46m</div>
                 <div class="meta-line">👥 3 signed up
  
 5 signed up
@@ -10359,7 +10256,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:10 · Starts in 9h 4m</div>
+                <div class="meta-line">Mon 23:10 · Starts in 8h 46m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10391,7 +10288,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:15 · Starts in 9h 9m</div>
+                <div class="meta-line">Mon 23:15 · Starts in 8h 51m</div>
                 <div class="meta-line">👥👥 30 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10423,7 +10320,7 @@ R.G.V. <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:30 · Starts in 9h 24m</div>
+                <div class="meta-line">Mon 23:30 · Starts in 9h 6m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10455,7 +10352,7 @@ Road To Ruins Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:30 · Starts in 9h 24m</div>
+                <div class="meta-line">Mon 23:30 · Starts in 9h 6m</div>
                 <div class="meta-line">👥 17 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10487,7 +10384,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 23:45 · Starts in 9h 39m</div>
+                <div class="meta-line">Mon 23:45 · Starts in 9h 21m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10519,7 +10416,7 @@ Libby Hill After Party <span class="route-diff route-Climbing">Climbing</span></
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:00 · Starts in 9h 54m</div>
+                <div class="meta-line">Tue 00:00 · Starts in 9h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -10560,7 +10457,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:10 · Starts in 10h 4m</div>
+                <div class="meta-line">Tue 00:10 · Starts in 9h 46m</div>
                 <div class="meta-line">👥 3 signed up
  
 6 signed up
@@ -10601,7 +10498,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:15 · Starts in 10h 9m</div>
+                <div class="meta-line">Tue 00:15 · Starts in 9h 51m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10633,7 +10530,7 @@ Cobbled Crown <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:20 · Starts in 10h 14m</div>
+                <div class="meta-line">Tue 00:20 · Starts in 9h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -10671,7 +10568,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:20 · Starts in 10h 14m</div>
+                <div class="meta-line">Tue 00:20 · Starts in 9h 56m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10703,7 +10600,7 @@ Makuri Madness <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:20 · Starts in 10h 14m</div>
+                <div class="meta-line">Tue 00:20 · Starts in 9h 56m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10735,7 +10632,7 @@ Sugar Cookie <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:20 · Starts in 10h 14m</div>
+                <div class="meta-line">Tue 00:20 · Starts in 9h 56m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10767,7 +10664,7 @@ Greatest London Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10799,7 +10696,7 @@ Road To Ruins Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -10839,7 +10736,7 @@ Island Outskirts <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10871,7 +10768,7 @@ Twilight Harbor <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 00:30 · Starts in 10h 24m</div>
+                <div class="meta-line">Tue 00:30 · Starts in 10h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -10903,7 +10800,7 @@ Champs-Élysées <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:00 · Starts in 10h 54m</div>
+                <div class="meta-line">Tue 01:00 · Starts in 10h 36m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -10939,7 +10836,7 @@ Prospect Park Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:00 · Starts in 10h 54m</div>
+                <div class="meta-line">Tue 01:00 · Starts in 10h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -10977,7 +10874,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:10 · Starts in 11h 4m</div>
+                <div class="meta-line">Tue 01:10 · Starts in 10h 46m</div>
                 <div class="meta-line">👥 3 signed up
  
 8 signed up
@@ -11018,7 +10915,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:15 · Starts in 11h 9m</div>
+                <div class="meta-line">Tue 01:15 · Starts in 10h 51m</div>
                 <div class="meta-line">👥 9 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -11051,7 +10948,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:30 · Starts in 11h 24m</div>
+                <div class="meta-line">Tue 01:30 · Starts in 11h 6m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11083,7 +10980,7 @@ Duchy Estate <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:30 · Starts in 11h 24m</div>
+                <div class="meta-line">Tue 01:30 · Starts in 11h 6m</div>
                 <div class="meta-line">👥 16 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11115,7 +11012,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 01:30 · Starts in 11h 24m</div>
+                <div class="meta-line">Tue 01:30 · Starts in 11h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11147,7 +11044,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:10 · Starts in 12h 4m</div>
+                <div class="meta-line">Tue 02:10 · Starts in 11h 46m</div>
                 <div class="meta-line">👥 2 signed up
  
 3 signed up
@@ -11188,7 +11085,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:15 · Starts in 12h 9m</div>
+                <div class="meta-line">Tue 02:15 · Starts in 11h 51m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11220,7 +11117,7 @@ The Fan Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:20 · Starts in 12h 14m</div>
+                <div class="meta-line">Tue 02:20 · Starts in 11h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -11258,7 +11155,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:30 · Starts in 12h 24m</div>
+                <div class="meta-line">Tue 02:30 · Starts in 12h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11290,7 +11187,7 @@ Road To Ruins Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 02:50 · Starts in 12h 44m</div>
+                <div class="meta-line">Tue 02:50 · Starts in 12h 26m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11322,7 +11219,7 @@ Watopia's Waistband <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 03:00 · Starts in 12h 54m</div>
+                <div class="meta-line">Tue 03:00 · Starts in 12h 36m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11354,7 +11251,7 @@ Issendorf Express <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 03:00 · Starts in 12h 54m</div>
+                <div class="meta-line">Tue 03:00 · Starts in 12h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11386,7 +11283,7 @@ Jungle Circuit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 03:10 · Starts in 13h 4m</div>
+                <div class="meta-line">Tue 03:10 · Starts in 12h 46m</div>
                 <div class="meta-line">👥 0 signed up
  
 2 signed up
@@ -11427,7 +11324,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 03:15 · Starts in 13h 9m</div>
+                <div class="meta-line">Tue 03:15 · Starts in 12h 51m</div>
                 <div class="meta-line">👥 1 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -11460,7 +11357,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 04:00 · Starts in 13h 54m</div>
+                <div class="meta-line">Tue 04:00 · Starts in 13h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11492,7 +11389,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 04:10 · Starts in 14h 4m</div>
+                <div class="meta-line">Tue 04:10 · Starts in 13h 46m</div>
                 <div class="meta-line">👥 0 signed up
  
 2 signed up
@@ -11533,7 +11430,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 04:40 · Starts in 14h 34m</div>
+                <div class="meta-line">Tue 04:40 · Starts in 14h 16m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11565,7 +11462,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:00 · Starts in 14h 54m</div>
+                <div class="meta-line">Tue 05:00 · Starts in 14h 36m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11597,7 +11494,7 @@ Loop de Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:00 · Starts in 14h 54m</div>
+                <div class="meta-line">Tue 05:00 · Starts in 14h 36m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11629,7 +11526,7 @@ Flat Route Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:00 · Starts in 14h 54m</div>
+                <div class="meta-line">Tue 05:00 · Starts in 14h 36m</div>
                 <div class="meta-line">👥 7 signed up
  
 7 signed up</div>
@@ -11663,7 +11560,7 @@ Mountain Route <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:10 · Starts in 15h 4m</div>
+                <div class="meta-line">Tue 05:10 · Starts in 14h 46m</div>
                 <div class="meta-line">👥 4 signed up
  
 2 signed up
@@ -11704,7 +11601,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:10 · Starts in 15h 4m</div>
+                <div class="meta-line">Tue 05:10 · Starts in 14h 46m</div>
                 <div class="meta-line">👥 17 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11736,7 +11633,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:15 · Starts in 15h 9m</div>
+                <div class="meta-line">Tue 05:15 · Starts in 14h 51m</div>
                 <div class="meta-line">👥 6 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -11769,7 +11666,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:30 · Starts in 15h 24m</div>
+                <div class="meta-line">Tue 05:30 · Starts in 15h 6m</div>
                 <div class="meta-line">👥 9 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11801,7 +11698,7 @@ Downtown Dolphin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:40 · Starts in 15h 34m</div>
+                <div class="meta-line">Tue 05:40 · Starts in 15h 16m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11833,7 +11730,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:45 · Starts in 15h 39m</div>
+                <div class="meta-line">Tue 05:45 · Starts in 15h 21m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11865,7 +11762,7 @@ Hot Laps <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:45 · Starts in 15h 39m</div>
+                <div class="meta-line">Tue 05:45 · Starts in 15h 21m</div>
                 <div class="meta-line">👥 10 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11897,7 +11794,7 @@ Watopia's Waistband <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:45 · Starts in 15h 39m</div>
+                <div class="meta-line">Tue 05:45 · Starts in 15h 21m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11929,7 +11826,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:50 · Starts in 15h 44m</div>
+                <div class="meta-line">Tue 05:50 · Starts in 15h 26m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11961,7 +11858,7 @@ Green to Screen <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 05:55 · Starts in 15h 49m</div>
+                <div class="meta-line">Tue 05:55 · Starts in 15h 31m</div>
                 <div class="meta-line">👥 14 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -11993,7 +11890,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:00 · Starts in 15h 54m</div>
+                <div class="meta-line">Tue 06:00 · Starts in 15h 36m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12025,7 +11922,7 @@ Accelerate to Elevate <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:00 · Starts in 15h 54m</div>
+                <div class="meta-line">Tue 06:00 · Starts in 15h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12057,7 +11954,7 @@ Triple Flat Loops <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:00 · Starts in 15h 54m</div>
+                <div class="meta-line">Tue 06:00 · Starts in 15h 36m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12089,7 +11986,7 @@ The Fan Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:00 · Starts in 15h 54m</div>
+                <div class="meta-line">Tue 06:00 · Starts in 15h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12121,7 +12018,7 @@ Sacre Bleu <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:10 · Starts in 16h 4m</div>
+                <div class="meta-line">Tue 06:10 · Starts in 15h 46m</div>
                 <div class="meta-line">👥 5 signed up
  
 18 signed up
@@ -12162,7 +12059,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:10 · Starts in 16h 4m</div>
+                <div class="meta-line">Tue 06:10 · Starts in 15h 46m</div>
                 <div class="meta-line">👥 12 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12194,7 +12091,7 @@ Volcano Circuit CCW <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:15 · Starts in 16h 9m</div>
+                <div class="meta-line">Tue 06:15 · Starts in 15h 51m</div>
                 <div class="meta-line">👥 4 signed up
  
 0 signed up</div>
@@ -12228,7 +12125,7 @@ Handful Of Gravel <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 06:30 · Starts in 16h 24m</div>
+                <div class="meta-line">Tue 06:30 · Starts in 16h 6m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12260,7 +12157,7 @@ Neon After Party <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:00 · Starts in 16h 54m</div>
+                <div class="meta-line">Tue 07:00 · Starts in 16h 36m</div>
                 <div class="meta-line">👥👥 29 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12292,7 +12189,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:00 · Starts in 16h 54m</div>
+                <div class="meta-line">Tue 07:00 · Starts in 16h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12324,7 +12221,7 @@ Sprinter's Playground <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:05 · Starts in 16h 59m</div>
+                <div class="meta-line">Tue 07:05 · Starts in 16h 41m</div>
                 <div class="meta-line">👥 6 signed up
  
 7 signed up
@@ -12368,7 +12265,7 @@ Three Musketeers <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:10 · Starts in 17h 4m</div>
+                <div class="meta-line">Tue 07:10 · Starts in 16h 46m</div>
                 <div class="meta-line">👥 2 signed up
  
 3 signed up
@@ -12409,7 +12306,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:10 · Starts in 17h 4m</div>
+                <div class="meta-line">Tue 07:10 · Starts in 16h 46m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12441,7 +12338,7 @@ Country to Coastal <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:15 · Starts in 17h 9m</div>
+                <div class="meta-line">Tue 07:15 · Starts in 16h 51m</div>
                 <div class="meta-line">👥 6 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -12474,7 +12371,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:15 · Starts in 17h 9m</div>
+                <div class="meta-line">Tue 07:15 · Starts in 16h 51m</div>
                 <div class="meta-line">👥 15 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12506,7 +12403,7 @@ The Muckle Yin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 07:30 · Starts in 17h 24m</div>
+                <div class="meta-line">Tue 07:30 · Starts in 17h 6m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12538,7 +12435,7 @@ Watts of the Wild <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:00 · Starts in 17h 54m</div>
+                <div class="meta-line">Tue 08:00 · Starts in 17h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -12579,7 +12476,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:00 · Starts in 17h 54m</div>
+                <div class="meta-line">Tue 08:00 · Starts in 17h 36m</div>
                 <div class="meta-line">👥 10 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12611,7 +12508,7 @@ Greater London Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:00 · Starts in 17h 54m</div>
+                <div class="meta-line">Tue 08:00 · Starts in 17h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12643,7 +12540,7 @@ Flat Route <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:00 · Starts in 17h 54m</div>
+                <div class="meta-line">Tue 08:00 · Starts in 17h 36m</div>
                 <div class="meta-line">👥 3 signed up
  
 0 signed up
@@ -12681,7 +12578,7 @@ Watopia's Waistband <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:00 · Starts in 17h 54m</div>
+                <div class="meta-line">Tue 08:00 · Starts in 17h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12713,7 +12610,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:10 · Starts in 18h 4m</div>
+                <div class="meta-line">Tue 08:10 · Starts in 17h 46m</div>
                 <div class="meta-line">👥 2 signed up
  
 6 signed up
@@ -12754,7 +12651,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:20 · Starts in 18h 14m</div>
+                <div class="meta-line">Tue 08:20 · Starts in 17h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 2 signed up
@@ -12792,7 +12689,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:20 · Starts in 18h 14m</div>
+                <div class="meta-line">Tue 08:20 · Starts in 17h 56m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12824,7 +12721,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:30 · Starts in 18h 24m</div>
+                <div class="meta-line">Tue 08:30 · Starts in 18h 6m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12856,7 +12753,7 @@ Wandering Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:30 · Starts in 18h 24m</div>
+                <div class="meta-line">Tue 08:30 · Starts in 18h 6m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12888,7 +12785,7 @@ No Sleep Till Brooklyn <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:30 · Starts in 18h 24m</div>
+                <div class="meta-line">Tue 08:30 · Starts in 18h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12920,7 +12817,7 @@ No Sleep Till Brooklyn <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:30 · Starts in 18h 24m</div>
+                <div class="meta-line">Tue 08:30 · Starts in 18h 6m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 medium km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12952,7 +12849,7 @@ Big Foot Hills <span class="route-diff route-Rolling">Rolling</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:35 · Starts in 18h 29m</div>
+                <div class="meta-line">Tue 08:35 · Starts in 18h 11m</div>
                 <div class="meta-line">👥 8 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -12984,7 +12881,7 @@ Coastal Crown Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 08:55 · Starts in 18h 49m</div>
+                <div class="meta-line">Tue 08:55 · Starts in 18h 31m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13016,7 +12913,7 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:00 · Starts in 18h 54m</div>
+                <div class="meta-line">Tue 09:00 · Starts in 18h 36m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13048,7 +12945,7 @@ Road to Ruins <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:10 · Starts in 19h 4m</div>
+                <div class="meta-line">Tue 09:10 · Starts in 18h 46m</div>
                 <div class="meta-line">👥 6 signed up
  
 5 signed up
@@ -13089,7 +12986,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:15 · Starts in 19h 9m</div>
+                <div class="meta-line">Tue 09:15 · Starts in 18h 51m</div>
                 <div class="meta-line">👥 3 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -13122,7 +13019,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:30 · Starts in 19h 24m</div>
+                <div class="meta-line">Tue 09:30 · Starts in 19h 6m</div>
                 <div class="meta-line">👥 3 signed up
  
 3 signed up
@@ -13163,7 +13060,7 @@ Road to Ruins <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:30 · Starts in 19h 24m</div>
+                <div class="meta-line">Tue 09:30 · Starts in 19h 6m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13195,7 +13092,7 @@ Watts the Limit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:30 · Starts in 19h 24m</div>
+                <div class="meta-line">Tue 09:30 · Starts in 19h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13227,7 +13124,7 @@ Splash and Dash <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 09:50 · Starts in 19h 44m</div>
+                <div class="meta-line">Tue 09:50 · Starts in 19h 26m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13259,7 +13156,7 @@ Libby Hill After Party <span class="route-diff route-Climbing">Climbing</span></
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:00 · Starts in 19h 54m</div>
+                <div class="meta-line">Tue 10:00 · Starts in 19h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -13300,7 +13197,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:00 · Starts in 19h 54m</div>
+                <div class="meta-line">Tue 10:00 · Starts in 19h 36m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13332,7 +13229,7 @@ Flat Route <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:10 · Starts in 20h 4m</div>
+                <div class="meta-line">Tue 10:10 · Starts in 19h 46m</div>
                 <div class="meta-line">👥 21 signed up
  
 8 signed up
@@ -13373,7 +13270,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:20 · Starts in 20h 14m</div>
+                <div class="meta-line">Tue 10:20 · Starts in 19h 56m</div>
                 <div class="meta-line">👥 1 signed up
  
 1 signed up
@@ -13411,7 +13308,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:30 · Starts in 20h 24m</div>
+                <div class="meta-line">Tue 10:30 · Starts in 20h 6m</div>
                 <div class="meta-line">👥 9 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13443,7 +13340,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:30 · Starts in 20h 24m</div>
+                <div class="meta-line">Tue 10:30 · Starts in 20h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13475,7 +13372,7 @@ Sprinter's Playground <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:30 · Starts in 20h 24m</div>
+                <div class="meta-line">Tue 10:30 · Starts in 20h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13507,7 +13404,7 @@ Sprinter's Playground <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 10:50 · Starts in 20h 44m</div>
+                <div class="meta-line">Tue 10:50 · Starts in 20h 26m</div>
                 <div class="meta-line">👥 1 signed up
  
 2 signed up</div>
@@ -13541,7 +13438,7 @@ Big Foot Hills <span class="route-diff route-Rolling">Rolling</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13573,7 +13470,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 3 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13605,7 +13502,7 @@ LaGuardia Loop Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 5 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13637,7 +13534,7 @@ Ocean Lava Cliffside Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:00 · Starts in 20h 54m</div>
+                <div class="meta-line">Tue 11:00 · Starts in 20h 36m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13669,7 +13566,7 @@ Muir And The Mountain <span class="route-diff route-Climbing">Climbing</span></d
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:04 · Starts in 20h 58m</div>
+                <div class="meta-line">Tue 11:04 · Starts in 20h 40m</div>
                 <div class="meta-line">👥 3 signed up
  
 8 signed up
@@ -13705,7 +13602,7 @@ Spiral into the Volcano <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:10 · Starts in 21h 4m</div>
+                <div class="meta-line">Tue 11:10 · Starts in 20h 46m</div>
                 <div class="meta-line">👥 7 signed up
  
 17 signed up
@@ -13746,7 +13643,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:15 · Starts in 21h 9m</div>
+                <div class="meta-line">Tue 11:15 · Starts in 20h 51m</div>
                 <div class="meta-line">👥 20 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -13779,7 +13676,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:25 · Starts in 21h 19m</div>
+                <div class="meta-line">Tue 11:25 · Starts in 21h 1m</div>
                 <div class="meta-line">👥 0 signed up
 0-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -13812,7 +13709,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:30 · Starts in 21h 24m</div>
+                <div class="meta-line">Tue 11:30 · Starts in 21h 6m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13844,7 +13741,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:40 · Starts in 21h 34m</div>
+                <div class="meta-line">Tue 11:40 · Starts in 21h 16m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13876,7 +13773,7 @@ Classique <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:45 · Starts in 21h 39m</div>
+                <div class="meta-line">Tue 11:45 · Starts in 21h 21m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13908,7 +13805,7 @@ Sand And Sequoias <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 11:50 · Starts in 21h 44m</div>
+                <div class="meta-line">Tue 11:50 · Starts in 21h 26m</div>
                 <div class="meta-line">👥 7 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13940,7 +13837,7 @@ Kaze Kicker <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥👥👥 62 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -13972,7 +13869,7 @@ Ocean Lava Cliffside Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -14013,7 +13910,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14045,7 +13942,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:00 · Starts in 21h 54m</div>
+                <div class="meta-line">Tue 12:00 · Starts in 21h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14077,7 +13974,7 @@ Big Flat 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:05 · Starts in 21h 59m</div>
+                <div class="meta-line">Tue 12:05 · Starts in 21h 41m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14109,7 +14006,7 @@ Innsbruckring <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:05 · Starts in 21h 59m</div>
+                <div class="meta-line">Tue 12:05 · Starts in 21h 41m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14141,7 +14038,7 @@ Volcano Flat <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:10 · Starts in 22h 4m</div>
+                <div class="meta-line">Tue 12:10 · Starts in 21h 46m</div>
                 <div class="meta-line">👥 8 signed up
  
 4 signed up
@@ -14182,7 +14079,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:10 · Starts in 22h 4m</div>
+                <div class="meta-line">Tue 12:10 · Starts in 21h 46m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14214,7 +14111,7 @@ Climb Control <span class="route-diff route-Climbing">Climbing</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:15 · Starts in 22h 9m</div>
+                <div class="meta-line">Tue 12:15 · Starts in 21h 51m</div>
                 <div class="meta-line">👥 0 signed up
  
 1 signed up
@@ -14252,7 +14149,7 @@ Downtown Dolphin <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:20 · Starts in 22h 14m</div>
+                <div class="meta-line">Tue 12:20 · Starts in 21h 56m</div>
                 <div class="meta-line">👥 0 signed up
  
 0 signed up
@@ -14290,7 +14187,7 @@ Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:30 · Starts in 22h 24m</div>
+                <div class="meta-line">Tue 12:30 · Starts in 22h 6m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14322,7 +14219,7 @@ Petit Boucle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:50 · Starts in 22h 44m</div>
+                <div class="meta-line">Tue 12:50 · Starts in 22h 26m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14354,7 +14251,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 12:50 · Starts in 22h 44m</div>
+                <div class="meta-line">Tue 12:50 · Starts in 22h 26m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14386,7 +14283,7 @@ Wandering Flats <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:00 · Starts in 22h 54m</div>
+                <div class="meta-line">Tue 13:00 · Starts in 22h 36m</div>
                 <div class="meta-line">👥 4 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14418,7 +14315,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:00 · Starts in 22h 54m</div>
+                <div class="meta-line">Tue 13:00 · Starts in 22h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14450,7 +14347,7 @@ May Field <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:10 · Starts in 23h 4m</div>
+                <div class="meta-line">Tue 13:10 · Starts in 22h 46m</div>
                 <div class="meta-line">👥 4 signed up
  
 4 signed up
@@ -14491,7 +14388,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:15 · Starts in 23h 9m</div>
+                <div class="meta-line">Tue 13:15 · Starts in 22h 51m</div>
                 <div class="meta-line">👥 7 signed up
 650-1000</div>
                 <div class="meta-line">📏 short km</div>
@@ -14524,7 +14421,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:30 · Starts in 23h 24m</div>
+                <div class="meta-line">Tue 13:30 · Starts in 23h 6m</div>
                 <div class="meta-line">👥👥 36 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14556,7 +14453,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 13:30 · Starts in 23h 24m</div>
+                <div class="meta-line">Tue 13:30 · Starts in 23h 6m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14588,7 +14485,7 @@ Waisted 8 <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 6 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14620,7 +14517,7 @@ Tick Tock <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 11 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14652,7 +14549,7 @@ Countryside Tour <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 1 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14684,7 +14581,7 @@ Park Perimeter Reverse <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14716,7 +14613,7 @@ Ocean Lava Cliffside Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14748,7 +14645,7 @@ Tempus Fugit <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:00 · Starts in 23h 54m</div>
+                <div class="meta-line">Tue 14:00 · Starts in 23h 36m</div>
                 <div class="meta-line">👥 0 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14780,7 +14677,7 @@ Douce France <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:05 · Starts in 23h 59m</div>
+                <div class="meta-line">Tue 14:05 · Starts in 23h 41m</div>
                 <div class="meta-line">👥 1 signed up
  
 2 signed up</div>
@@ -14816,7 +14713,7 @@ Seaside Sprint <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:10 · Tomorrow at 14:10</div>
+                <div class="meta-line">Tue 14:10 · Starts in 23h 46m</div>
                 <div class="meta-line">👥 7 signed up
  
 2 signed up
@@ -14857,7 +14754,7 @@ Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:10 · Tomorrow at 14:10</div>
+                <div class="meta-line">Tue 14:10 · Starts in 23h 46m</div>
                 <div class="meta-line">👥 2 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -14889,7 +14786,7 @@ Loch Loop <span class="route-diff route-Flat">Flat</span></div>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Tue 14:20 · Tomorrow at 14:20</div>
+                <div class="meta-line">Tue 14:20 · Starts in 23h 56m</div>
                 <div class="meta-line">👥 1 signed up
  
 0 signed up
@@ -23163,29 +23060,27 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
                class="join-button" target="_blank">Join Now</a>
             
         </div>
-      </div>
-      <div id="zwift-recommended" class="zwift-tab-content">
-        <div class="event-card starts-soon">
-            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
+<div class="event-card ">
+            
             <div class="event-header">
-                <span class="event-name">Stage 1: Zwift Games: Kaze Kicker</span>
+                <span class="event-name">Stage 2: Zwift Games: Hudson Hustle</span>
                 
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 4 min</span>
+                
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:10 · Starts in 4 min</div>
-                <div class="meta-line">👥 3 signed up
+                <div class="meta-line">Wed 14:10 · Tomorrow at 14:10</div>
+                <div class="meta-line">👥 1 signed up
  
-5 signed up
+4 signed up
  
-9 signed up
+4 signed up
  
-9 signed up
+2 signed up
  
-11 signed up
-0-725</div>
+2 signed up
+0-650</div>
                 <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
                 <div class="meta-line">🔥 IF: 0.8</div>
@@ -23198,62 +23093,95 @@ Neon Shore Loop <span class="route-diff route-Flat">Flat</span></div>
                 <div class="intensity-fill" style="width:0%"></div>
             </div>
 
-            <div class="event-route">🌍 Unknown — M
-Kaze Kicker <span class="route-diff route-Flat">Flat</span></div>
+            <div class="event-route">🌍 Unknown — N
+Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
 
             
-            <a href="https://www.zwift.com/events/view/5429289"
+            <a href="https://www.zwift.com/events/view/5429498"
                class="join-button" target="_blank">Join Now</a>
             
         </div>
-<div class="event-card starts-soon">
-            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
+<div class="event-card ">
+            
             <div class="event-header">
-                <span class="event-name">T-VGN 🌱 Vitamin K Rubberband</span>
+                <span class="event-name">Stage 2: Zwift Games: Hudson Hustle | Advanced</span>
                 
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 9 min</span>
+                
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:15 · Starts in 9 min</div>
-                <div class="meta-line">👥 5 signed up</div>
-                <div class="meta-line">📏 Distance: N/A</div>
+                <div class="meta-line">Wed 14:15 · Tomorrow at 14:15</div>
+                <div class="meta-line">👥 0 signed up
+650-1000</div>
+                <div class="meta-line">📏 short km</div>
                 <span class="event-difficulty diff-easy">Easy</span>
                 <div class="meta-line">🔥 IF: 0.8</div>
-                <div class="meta-line">📈 CTL +1.1</div>
-                <div class="meta-line">📉 ATL +6.9</div>
-                <span class="tss-badge tss-moderate">48 TSS</span>
+                <div class="meta-line">📈 CTL +1.5</div>
+                <div class="meta-line">📉 ATL +9.1</div>
+                <span class="tss-badge tss-moderate">64 TSS</span>
             </div>
 
             <div class="intensity-bar">
                 <div class="intensity-fill" style="width:0%"></div>
             </div>
 
-            <div class="event-route">🌍 Unknown — W
-Going Coastal <span class="route-diff route-Flat">Flat</span></div>
+            <div class="event-route">🌍 Unknown — N
+Hudson Hustle <span class="route-diff route-Flat">Flat</span></div>
 
             
-            <a href="https://www.zwift.com/events/view/5452359"
+            <a href="https://www.zwift.com/events/view/5430629"
                class="join-button" target="_blank">Join Now</a>
             
         </div>
-<div class="event-card starts-soon">
+<div class="event-card ">
+            
+            <div class="event-header">
+                <span class="event-name">Phoenix Rising Midweek Meander</span>
+                
+                <span class="event-type-badge event-type-ride">Ride</span>
+                
+            </div>
+
+            <div class="event-meta">
+                <div class="meta-line">Wed 14:15 · Tomorrow at 14:15</div>
+                <div class="meta-line">👥 4 signed up</div>
+                <div class="meta-line">📏 Distance: N/A</div>
+                <span class="event-difficulty diff-easy">Easy</span>
+                <div class="meta-line">🔥 IF: 0.8</div>
+                <div class="meta-line">📈 CTL +1.9</div>
+                <div class="meta-line">📉 ATL +11.4</div>
+                <span class="tss-badge tss-hard">80 TSS</span>
+            </div>
+
+            <div class="intensity-bar">
+                <div class="intensity-fill" style="width:0%"></div>
+            </div>
+
+            <div class="event-route">🌍 Unknown — M
+Red Zone Repeats <span class="route-diff route-Flat">Flat</span></div>
+
+            
+            <a href="https://www.zwift.com/events/view/5457109"
+               class="join-button" target="_blank">Join Now</a>
+            
+        </div>
+<div class="event-card ">
             
             <div class="event-header">
                 <span class="event-name">Zwift TT Club Racing - Bon Voyage</span>
                 
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 14 min</span>
+                
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:20 · Starts in 14 min</div>
-                <div class="meta-line">👥 2 signed up
+                <div class="meta-line">Wed 14:20 · Tomorrow at 14:20</div>
+                <div class="meta-line">👥 0 signed up
  
-2 signed up
+0 signed up
  
-1 signed up
+0 signed up
  
 0 signed up</div>
                 <div class="meta-line">📏 short km</div>
@@ -23272,21 +23200,23 @@ Going Coastal <span class="route-diff route-Flat">Flat</span></div>
 Bon Voyage <span class="route-diff route-Flat">Flat</span></div>
 
             
-            <a href="https://www.zwift.com/events/view/5393477"
+            <a href="https://www.zwift.com/events/view/5393280"
                class="join-button" target="_blank">Join Now</a>
             
         </div>
-<div class="event-card starts-soon">
-            
+      </div>
+      <div id="zwift-recommended" class="zwift-tab-content">
+        <div class="event-card starts-soon">
+            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
             <div class="event-header">
                 <span class="event-name">HCC Wellness Ride p/b Pinarello</span>
                 <span class="cat-badge cat-B">B</span>
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 24 min</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 6 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:30 · Starts in 24 min</div>
+                <div class="meta-line">Mon 14:30 · Starts in 6 min</div>
                 <div class="meta-line">👥👥 28 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -23309,16 +23239,16 @@ Three Musketeers <span class="route-diff route-Flat">Flat</span></div>
             
         </div>
 <div class="event-card starts-soon">
-            
+            <div class='starts-soon-banner'>⏱️ Starts Soon — Join Now</div>
             <div class="event-header">
                 <span class="event-name">EZR Easy Riding with EZ</span>
                 
                 <span class="event-type-badge event-type-ride">Ride</span>
-                <span class='event-badge starts-in'>⏱️ Starts in Starts in 24 min</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 6 min</span>
             </div>
 
             <div class="event-meta">
-                <div class="meta-line">Mon 14:30 · Starts in 24 min</div>
+                <div class="meta-line">Mon 14:30 · Starts in 6 min</div>
                 <div class="meta-line">👥👥 23 signed up</div>
                 <div class="meta-line">📏 Distance: N/A</div>
                 <span class="event-difficulty diff-easy">Easy</span>
@@ -23340,10 +23270,123 @@ London 8 <span class="route-diff route-Flat">Flat</span></div>
                class="join-button" target="_blank">Join Now</a>
             
         </div>
+<div class="event-card starts-soon">
+            
+            <div class="event-header">
+                <span class="event-name">Zwift Crit Racing Club - Castle Crit</span>
+                
+                <span class="event-type-badge event-type-race">Race</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 16 min</span>
+            </div>
+
+            <div class="event-meta">
+                <div class="meta-line">Mon 14:40 · Starts in 16 min</div>
+                <div class="meta-line">👥 1 signed up
+ 
+0 signed up
+ 
+2 signed up
+ 
+0 signed up
+ 
+1 signed up
+0-1000</div>
+                <div class="meta-line">📏 short km</div>
+                <span class="event-difficulty diff-moderate">Moderate</span>
+                <div class="meta-line">🔥 IF: 0.8</div>
+                <div class="meta-line">📈 CTL +1.5</div>
+                <div class="meta-line">📉 ATL +9.1</div>
+                <span class="tss-badge tss-moderate">64 TSS</span>
+            </div>
+
+            <div class="intensity-bar">
+                <div class="intensity-fill" style="width:0%"></div>
+            </div>
+
+            <div class="event-route">🌍 Unknown — M
+Castle Crit <span class="route-diff route-Flat">Flat</span></div>
+
+            
+            <a href="https://www.zwift.com/events/view/5402242"
+               class="join-button" target="_blank">Join Now</a>
+            
+        </div>
+<div class="event-card starts-soon">
+            
+            <div class="event-header">
+                <span class="event-name">EVO CC Race Series</span>
+                
+                <span class="event-type-badge event-type-race">Race</span>
+                <span class='event-badge starts-in'>⏱️ Starts in Starts in 21 min</span>
+            </div>
+
+            <div class="event-meta">
+                <div class="meta-line">Mon 14:45 · Starts in 21 min</div>
+                <div class="meta-line">👥 0 signed up
+ 
+0 signed up
+ 
+1 signed up
+ 
+1 signed up
+ 
+0 signed up
+0-1000</div>
+                <div class="meta-line">📏 short km</div>
+                <span class="event-difficulty diff-moderate">Moderate</span>
+                <div class="meta-line">🔥 IF: 0.8</div>
+                <div class="meta-line">📈 CTL +1.5</div>
+                <div class="meta-line">📉 ATL +9.1</div>
+                <span class="tss-badge tss-moderate">64 TSS</span>
+            </div>
+
+            <div class="intensity-bar">
+                <div class="intensity-fill" style="width:0%"></div>
+            </div>
+
+            <div class="event-route">🌍 Unknown — N
+Watts the Limit <span class="route-diff route-Flat">Flat</span></div>
+
+            
+            <a href="https://www.zwift.com/events/view/5452363"
+               class="join-button" target="_blank">Join Now</a>
+            
+        </div>
+<div class="event-card ">
+            
+            <div class="event-header">
+                <span class="event-name">PACK🐺 BANDED Recovery Road</span>
+                
+                <span class="event-type-badge event-type-ride">Ride</span>
+                
+            </div>
+
+            <div class="event-meta">
+                <div class="meta-line">Mon 14:55 · Starts in 31 min</div>
+                <div class="meta-line">👥👥👥 61 signed up</div>
+                <div class="meta-line">📏 Distance: N/A</div>
+                <span class="event-difficulty diff-easy">Easy</span>
+                <div class="meta-line">🔥 IF: 0.8</div>
+                <div class="meta-line">📈 CTL +1.9</div>
+                <div class="meta-line">📉 ATL +11.4</div>
+                <span class="tss-badge tss-hard">80 TSS</span>
+            </div>
+
+            <div class="intensity-bar">
+                <div class="intensity-fill" style="width:0%"></div>
+            </div>
+
+            <div class="event-route">🌍 Unknown — M
+Flatland Loop <span class="route-diff route-Flat">Flat</span></div>
+
+            
+            <a href="https://www.zwift.com/events/view/5452364"
+               class="join-button" target="_blank">Join Now</a>
+            
+        </div>
       </div>
     </div>
     </div>
-        
 
 <!-- ========================================================= -->
 <!-- 1. TOOLTIP + INLINE PREVIEW LOADER                        -->
@@ -23469,33 +23512,24 @@ function attachTabListeners() {
     // Top-level Dashboard / Charts tabs
     document.querySelectorAll('.tab-button').forEach(btn => {
         btn.addEventListener("click", () => {
-            // Deactivate all top-level tab buttons
+
             document.querySelectorAll('.tab-button')
                 .forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
 
-            // Hide all top-level tab content
             document.querySelectorAll('.tab-content')
                 .forEach(tab => tab.classList.remove("active"));
 
             const target = btn.getAttribute("data-target");
-            if (!target) {
-                console.warn("No data-target for tab-button:", btn);
-                return;
-            }
-
             const el = document.getElementById(target);
-            if (!el) {
-                console.warn("No tab-content with id:", target);
-                return;
+            if (el) el.classList.add("active");
+
+            if (target === "charts-tab") {
+                loadCharts();
             }
-
-            el.classList.add("active");
-
-            // Reload previews when switching main tabs
-            setTimeout(loadAllZwoPreviews, 50);
         });
     });
+
 
     // Zwift Events tabs (Races / Workouts / Group Rides / Recommended)
     document.querySelectorAll('.zwift-tab-button').forEach(btn => {
@@ -23543,6 +23577,79 @@ document.addEventListener("DOMContentLoaded", () => {
     loadAllZwoPreviews();
 });
 </script>
+
+<script>
+async function loadCharts() {
+
+    // Load your metrics JSON (adjust path if needed)
+    const res = await fetch("/output/metrics.json");
+    const data = await res.json();
+
+    // -----------------------------
+    // CTL / ATL / TSB Time Series
+    // -----------------------------
+    new Chart(document.getElementById("ctlChart"), {
+        type: "line",
+        data: {
+            labels: data.dates,
+            datasets: [
+                { label: "CTL", data: data.ctl, borderColor: "#4caf50", tension: 0.2 },
+                { label: "ATL", data: data.atl, borderColor: "#f44336", tension: 0.2 },
+                { label: "TSB", data: data.tsb, borderColor: "#2196f3", tension: 0.2 }
+            ]
+        },
+        options: { responsive: true }
+    });
+
+    // -----------------------------
+    // Power Duration Curve
+    // -----------------------------
+    new Chart(document.getElementById("pdcChart"), {
+        type: "line",
+        data: {
+            labels: data.pdc.seconds,
+            datasets: [
+                { label: "Power (W)", data: data.pdc.watts, borderColor: "#ff9800", tension: 0.2 }
+            ]
+        },
+        options: { responsive: true }
+    });
+
+    // -----------------------------
+    // Power Radar Chart
+    // -----------------------------
+    new Chart(document.getElementById("radarChart"), {
+        type: "radar",
+        data: {
+            labels: data.radar.labels,
+            datasets: [{
+                label: "Power Profile",
+                data: data.radar.values,
+                backgroundColor: "rgba(33,150,243,0.3)",
+                borderColor: "#2196f3"
+            }]
+        },
+        options: { responsive: true }
+    });
+
+    // -----------------------------
+    // Weekly TSS Bar Chart
+    // -----------------------------
+    new Chart(document.getElementById("tssChart"), {
+        type: "bar",
+        data: {
+            labels: data.weekly.weeks,
+            datasets: [{
+                label: "Weekly TSS",
+                data: data.weekly.tss,
+                backgroundColor: "#673ab7"
+            }]
+        },
+        options: { responsive: true }
+    });
+}
+</script>
+
 
 </body>
 </html>
