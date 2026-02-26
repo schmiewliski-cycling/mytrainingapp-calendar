@@ -138,27 +138,6 @@ body.splash {
     gap: 10px;
 }
 
-/* MOBILE OPTIMISATION — iPhone Friendly Layout */
-@media (max-width: 768px) {
-/* Global spacing */
-    body {
-        padding: 12px;
-        font-size: 16px;
-        line-height: 1.4;
-    }
-
-    .week-grid {
-        grid-template-columns: 1fr !important;
-        gap: 14px !important;
-    }
-
-    .btn-download {
-        display: none !important;
-    }
-}
-
-
-
 /* Force calendar text to white */
 .week-calendar * {
     color: white !important;
@@ -1274,4 +1253,23 @@ select {
     font-size: 18px; 
     font-weight: bold; 
     margin-bottom: 10px; 
+}
+
+/* MOBILE OPTIMISATION — iPhone Friendly Layout */
+@media (max-width: 768px) {
+/* Global spacing */
+    body {
+        padding: 12px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .week-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .btn-download {
+        display: none !important;
+    }
 }
