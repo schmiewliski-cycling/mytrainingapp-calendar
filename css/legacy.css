@@ -446,6 +446,12 @@ th {
     background-color: #1e1e1e;
 }
 
+@media (max-width: 768px) {
+    .btn-download {
+        display: none !important;
+    }
+}
+
 .zwift-icon {
     width: 20px;
     height: 20px;
