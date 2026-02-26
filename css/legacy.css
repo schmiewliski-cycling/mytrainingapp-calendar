@@ -140,8 +140,8 @@ body.splash {
 
 @media (max-width: 768px) {
     .week-calendar-grid {
-        grid-template-columns: 1fr !important;
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
     }
 }
 
