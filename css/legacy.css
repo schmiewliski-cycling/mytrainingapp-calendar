@@ -1263,7 +1263,8 @@ select {
         line-height: 1.4;
     }
 
-    .week-grid {
+    .week-grid, 
+    .week-calendar-grid{
         grid-template-columns: 1fr !important;
         gap: 14px !important;
     }
